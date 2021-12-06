@@ -14,7 +14,7 @@ public class PriorityTQ<T> {
 	private T minTask;
 	
 	public PriorityTQ() {
-		
+		//TODO write a constructor
 	} // Constructor
 	
 	/**
