@@ -4,6 +4,6 @@ package finalProject;
  * @version 12/2/21
  */
 
-public class CommandCenter {
+public class View {
 
 }
