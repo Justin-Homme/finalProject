@@ -22,7 +22,6 @@ public interface DSStack<T> {
 	 * @throws EmptyStackException if stack is empty
 	 */
 	public T pop() throws EmptyStackException;
-	// HI
 
 	/**
 	 * 
