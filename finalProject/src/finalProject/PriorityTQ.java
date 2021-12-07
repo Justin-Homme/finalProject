@@ -8,6 +8,7 @@ package finalProject;
  * @version 12/2/21
  *
  */
+
 public class PriorityTQ<T> {
 
 	/** The current highest priority task */
@@ -18,14 +19,6 @@ public class PriorityTQ<T> {
 	} // Constructor
 	
 	/**
-	 * @return the highest priority task
-	 */
-	public T findMin() {
-		//TODO finish this method
-		return this.minTask;
-	} // findMin
-	
-	/**
 	 * @param task the task to be added to the queue
 	 * @param priority an int signifying the priority of the task 
 	 * (1 is highest priority, 100 is lowest priority)
@@ -34,5 +27,4 @@ public class PriorityTQ<T> {
 		//TODO finish this method
 	} // addTask
 	
-	
-}
+} // PriorityTQ
