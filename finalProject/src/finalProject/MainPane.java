@@ -1,6 +1,5 @@
 package finalProject;
 
-import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.FlowPane;
@@ -16,11 +15,12 @@ import javafx.scene.layout.GridPane;
  * @version Fall 2021
  */
 
-public class MainPane extends GridPane implements EventHandler<ActionEvent> {
+public class MainPane extends GridPane {
 
 	/** a TextArea to show a temporary test message */
 	private TextArea myTA;
 	private Button addTaskB;
+	private Button removeTaskB;
 
 	public MainPane() {
 		super();
@@ -32,7 +32,8 @@ public class MainPane extends GridPane implements EventHandler<ActionEvent> {
 		myTA.setText("This is a test");
 		temp.getChildren().add(myTA);
 		addTaskB = new Button("+");
-		addTaskB.setOnAction
+		GridPane myGP = new GridPane();
+		myGP.add(addTaskB, 1, 1);
 
 		myTA = new TextArea(); // the second column
 		myTA.setPrefSize(150, 500);
