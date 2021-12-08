@@ -6,7 +6,7 @@ import java.util.Scanner;
  * The user interface class to drive the animal guessing game
  * 
  * @author Justin Homme
- * @version 10/02/21
+ * @version 12/8/21
  */
 
 //TODO change this class to fit what we want for the final project
