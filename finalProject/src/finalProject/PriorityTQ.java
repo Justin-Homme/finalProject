@@ -26,5 +26,4 @@ public class PriorityTQ<T> {
 	public void addTask(T task, int priority) {
 		//TODO finish this method
 	} // addTask
-	
 } // PriorityTQ
