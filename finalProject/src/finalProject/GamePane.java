@@ -19,6 +19,8 @@ public class GamePane extends GridPane {
 	private TextArea myTA;
 	
 	private Button yesB;
+	
+	private Button noB;
 
 	public GamePane() {
 		super();
@@ -34,8 +36,10 @@ public class GamePane extends GridPane {
 		myGP.setVgap(10);
 		
 		yesB = new Button("Yes");
-		yesB.setMaxWidth(25);
 		myGP.add(yesB, 0, 0);
+		
+		noB = new Button("No");
+		myGP.add(noB, 1, 0);
 
 		temp.getChildren().add(myTA);
 		temp.getChildren().add(myGP);
