@@ -37,6 +37,9 @@ public class View extends Application {
 			MainPane myMainTab = new MainPane();	// the MainPane
 			myTP.getTabs().add(new Tab("Main", myMainTab));
 			
+			ListPane myListPane = new ListPane();	// the ListPane
+			myTP.getTabs().add(new Tab("List", myListPane));
+			
 			GamePane myGP = new GamePane();	// the GamePane
 			myFP.getChildren().add(myGP);
 			
