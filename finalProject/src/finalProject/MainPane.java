@@ -34,8 +34,8 @@ public class MainPane extends GridPane {
 		temp.setPrefSize(450, 500);
 
 		myTA = new TextArea(); // the first column
-		myTA.setPrefSize(150, 300);
-		myTA.setText("This is a test");
+		myTA.setPrefSize(150, 200);
+		myTA.setText("1 Priority Task");
 		addTaskB = new Button("+");
 		removeTaskB = new Button("-");
 
@@ -51,8 +51,8 @@ public class MainPane extends GridPane {
 		temp.getChildren().add(myGP);
 
 		myTA = new TextArea(); // the second column
-		myTA.setPrefSize(150, 500);
-		myTA.setText("This is also a test");
+		myTA.setPrefSize(150, 200);
+		myTA.setText("Current Message");
 		addMessageB = new Button("+");
 		removeMessageB = new Button("-");
 
@@ -64,12 +64,12 @@ public class MainPane extends GridPane {
 
 		GridPane myGP2 = new GridPane();
 		myGP2.add(myTA, 0, 0, 5, 5);
-		myGP2.add(buttonHB2, 1, 2, 1, 2);
+		myGP2.add(buttonHB2, 1, 5, 1, 2);
 		temp.getChildren().add(myGP2);
 
 		myTA = new TextArea(); // the third column
-		myTA.setPrefSize(150, 500);
-		myTA.setText("Also a test");
+		myTA.setPrefSize(150, 200);
+		myTA.setText("List of Tasks");
 		addToListB = new Button("+");
 		removeFromListB = new Button("-");
 
