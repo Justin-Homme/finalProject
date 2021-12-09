@@ -1,6 +1,5 @@
 package finalProject;
 
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -34,13 +33,8 @@ public class GamePane extends GridPane {
 		myTA.setPrefSize(175, 350);
 		myTA.setText("This is our Game Pane");
 		
-//		GridPane myGP = new GridPane();
-//		myGP.setHgap(10);
-//		myGP.setVgap(10);
-		
 		FlowPane myFP = new FlowPane();
 		myFP.setPrefSize(175, 150);
-//		myFP.setMaxSize(175, 150);
 		myFP.setAlignment(Pos.CENTER);
 		
 		HBox myHBox = new HBox();
