@@ -1,6 +1,5 @@
 package finalProject;
 
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -20,9 +19,9 @@ public class GamePane extends GridPane {
 
 	/** a text area to show a temporary test message */
 	private TextArea myTA;
-	
+
 	private Button yesB;
-	
+
 	private Button noB;
 
 	public GamePane() {
@@ -33,25 +32,25 @@ public class GamePane extends GridPane {
 		myTA = new TextArea();
 		myTA.setPrefSize(175, 350);
 		myTA.setText("This is our Game Pane");
-		
+
 //		GridPane myGP = new GridPane();
 //		myGP.setHgap(10);
 //		myGP.setVgap(10);
-		
+
 		FlowPane myFP = new FlowPane();
 		myFP.setPrefSize(175, 150);
 //		myFP.setMaxSize(175, 150);
 		myFP.setAlignment(Pos.CENTER);
-		
+
 		HBox myHBox = new HBox();
 		myHBox.setAlignment(Pos.CENTER);
 		myHBox.setSpacing(20);
 		yesB = new Button("Yes");
 		myHBox.getChildren().add(yesB);
-		
+
 		noB = new Button("No");
 		myHBox.getChildren().add(noB);
-		
+
 		myFP.getChildren().add(myHBox);
 
 		temp.getChildren().add(myTA);
@@ -59,4 +58,5 @@ public class GamePane extends GridPane {
 		getChildren().add(temp);
 
 	} // constructor
+
 }

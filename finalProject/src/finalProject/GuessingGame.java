@@ -114,7 +114,7 @@ public class GuessingGame<T> {
 			setResponse();
 		}
 		if (getResponse() == false) {
-			System.out.println("What breakfast were you thinking of?");
+			System.out.println("Darn! What breakfast were you thinking of?");
 			addBreakfast();
 			addQuestion();
 		} else {

@@ -53,7 +53,6 @@ public class MainPane extends GridPane {
 		myTA = new TextArea(); // the second column
 		myTA.setPrefSize(150, 500);
 		myTA.setText("This is also a test");
-		temp.getChildren().add(myTA);
 		addMessageB = new Button("+");
 		removeMessageB = new Button("-");
 
@@ -64,14 +63,15 @@ public class MainPane extends GridPane {
 		buttonHB2.getChildren().add(removeMessageB);
 
 		GridPane myGP2 = new GridPane();
-		myGP2.add(myTA, 0, 0, 1, 1);
-		myGP2.add(buttonHB2, 0, 2, 1, 2);
+		myGP2.add(myTA, 0, 0, 5, 5);
+		myGP2.add(buttonHB2, 1, 2, 1, 2);
 		temp.getChildren().add(myGP2);
 
 		myTA = new TextArea(); // the third column
 		myTA.setPrefSize(150, 500);
 		myTA.setText("Also a test");
-		temp.getChildren().add(myTA);
+		addToListB = new Button("+");
+		removeFromListB = new Button("-");
 
 		HBox buttonHB3 = new HBox();
 		buttonHB3.setSpacing(10);
@@ -81,7 +81,7 @@ public class MainPane extends GridPane {
 
 		GridPane myGP3 = new GridPane();
 		myGP3.add(myTA, 0, 0, 1, 1);
-		myGP3.add(buttonHB3, 0, 2, 1, 2);
+		myGP3.add(buttonHB3, 0, 2, 3, 2);
 		temp.getChildren().add(myGP3);
 
 		getChildren().add(temp);
