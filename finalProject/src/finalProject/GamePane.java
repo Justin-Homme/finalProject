@@ -1,9 +1,12 @@
 package finalProject;
 
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 
 /**
  * The GamePane Class that sets up the pane to display our guessing game in our
@@ -31,18 +34,28 @@ public class GamePane extends GridPane {
 		myTA.setPrefSize(175, 350);
 		myTA.setText("This is our Game Pane");
 		
-		GridPane myGP = new GridPane();
-		myGP.setHgap(10);
-		myGP.setVgap(10);
+//		GridPane myGP = new GridPane();
+//		myGP.setHgap(10);
+//		myGP.setVgap(10);
 		
+		FlowPane myFP = new FlowPane();
+		myFP.setPrefSize(175, 150);
+//		myFP.setMaxSize(175, 150);
+		myFP.setAlignment(Pos.CENTER);
+		
+		HBox myHBox = new HBox();
+		myHBox.setAlignment(Pos.CENTER);
+		myHBox.setSpacing(20);
 		yesB = new Button("Yes");
-		myGP.add(yesB, 0, 0);
+		myHBox.getChildren().add(yesB);
 		
 		noB = new Button("No");
-		myGP.add(noB, 1, 0);
+		myHBox.getChildren().add(noB);
+		
+		myFP.getChildren().add(myHBox);
 
 		temp.getChildren().add(myTA);
-		temp.getChildren().add(myGP);
+		temp.getChildren().add(myFP);
 		getChildren().add(temp);
 
 	} // constructor
