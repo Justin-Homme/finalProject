@@ -23,6 +23,10 @@ public class MainPane extends GridPane {
 	private TextArea myTA;
 	private Button addTaskB;
 	private Button removeTaskB;
+	private Button addMessageB;
+	private Button removeMessageB;
+	private Button addToListB;
+	private Button removeFromListB;
 
 	public MainPane() {
 		super();
@@ -34,13 +38,13 @@ public class MainPane extends GridPane {
 		myTA.setText("This is a test");
 		addTaskB = new Button("+");
 		removeTaskB = new Button("-");
-		
+
 		HBox buttonHB = new HBox();
 		buttonHB.setSpacing(10);
 		buttonHB.setPadding(new Insets(20, 20, 20, 20));
 		buttonHB.getChildren().add(addTaskB);
 		buttonHB.getChildren().add(removeTaskB);
-		
+
 		GridPane myGP = new GridPane();
 		myGP.add(myTA, 0, 0, 1, 1);
 		myGP.add(buttonHB, 0, 2, 1, 2);
@@ -50,11 +54,35 @@ public class MainPane extends GridPane {
 		myTA.setPrefSize(150, 500);
 		myTA.setText("This is also a test");
 		temp.getChildren().add(myTA);
+		addMessageB = new Button("+");
+		removeMessageB = new Button("-");
+
+		HBox buttonHB2 = new HBox();
+		buttonHB2.setSpacing(10);
+		buttonHB2.setPadding(new Insets(20, 20, 20, 20));
+		buttonHB2.getChildren().add(addMessageB);
+		buttonHB2.getChildren().add(removeMessageB);
+
+		GridPane myGP2 = new GridPane();
+		myGP2.add(myTA, 0, 0, 1, 1);
+		myGP2.add(buttonHB2, 0, 2, 1, 2);
+		temp.getChildren().add(myGP2);
 
 		myTA = new TextArea(); // the third column
 		myTA.setPrefSize(150, 500);
 		myTA.setText("Also a test");
 		temp.getChildren().add(myTA);
+
+		HBox buttonHB3 = new HBox();
+		buttonHB3.setSpacing(10);
+		buttonHB3.setPadding(new Insets(20, 20, 20, 20));
+		buttonHB3.getChildren().add(addToListB);
+		buttonHB3.getChildren().add(removeFromListB);
+
+		GridPane myGP3 = new GridPane();
+		myGP3.add(myTA, 0, 0, 1, 1);
+		myGP3.add(buttonHB3, 0, 2, 1, 2);
+		temp.getChildren().add(myGP3);
 
 		getChildren().add(temp);
 
