@@ -21,6 +21,7 @@ public class MainPane extends GridPane {
 
 	/** a TextArea to show a temporary test message */
 	private TextArea myTA;
+	private TextArea newTA;
 	private Button addTaskB;
 	private Button removeTaskB;
 	private Button addMessageB;
@@ -35,7 +36,10 @@ public class MainPane extends GridPane {
 
 		myTA = new TextArea(); // the first column
 		myTA.setPrefSize(150, 200);
-		myTA.setText("1 Priority Task");
+		myTA.setText("Priority Task");
+		newTA = new TextArea();
+		newTA.setPrefSize(150, 200);
+		newTA.setText("Insert New Task Here");
 		addTaskB = new Button("+");
 		removeTaskB = new Button("-");
 
@@ -47,12 +51,16 @@ public class MainPane extends GridPane {
 
 		GridPane myGP = new GridPane();
 		myGP.add(myTA, 0, 0, 1, 1);
+		myGP.add(newTA, 0, 1, 1, 1);
 		myGP.add(buttonHB, 0, 2, 1, 2);
 		temp.getChildren().add(myGP);
 
 		myTA = new TextArea(); // the second column
 		myTA.setPrefSize(150, 200);
 		myTA.setText("Current Message");
+		newTA = new TextArea();
+		newTA.setPrefSize(150, 200);
+		newTA.setText("Insert New Message Here");
 		addMessageB = new Button("+");
 		removeMessageB = new Button("-");
 
@@ -64,12 +72,16 @@ public class MainPane extends GridPane {
 
 		GridPane myGP2 = new GridPane();
 		myGP2.add(myTA, 0, 0, 1, 1);
+		myGP2.add(newTA, 0, 1, 1, 1);
 		myGP2.add(buttonHB2, 0, 2, 1, 2);
 		temp.getChildren().add(myGP2);
 
 		myTA = new TextArea(); // the third column
 		myTA.setPrefSize(150, 200);
 		myTA.setText("List of Tasks");
+		newTA = new TextArea();
+		newTA.setPrefSize(150, 200);
+		newTA.setText("Insert New Task Here");
 		addToListB = new Button("+");
 		removeFromListB = new Button("-");
 
@@ -81,6 +93,7 @@ public class MainPane extends GridPane {
 
 		GridPane myGP3 = new GridPane();
 		myGP3.add(myTA, 0, 0, 1, 1);
+		myGP3.add(newTA, 0, 1, 1, 1);
 		myGP3.add(buttonHB3, 0, 2, 1, 2);
 		temp.getChildren().add(myGP3);
 
