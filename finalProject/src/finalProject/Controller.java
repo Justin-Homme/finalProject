@@ -14,6 +14,9 @@ package finalProject;
 
 public class Controller {
 
+	/** BinaryMinHeap to sort task priority */
+	private BinaryMinHeap tasks;
+
 	/** The Priority Task Queue that we will use for part 1 */
 	private PriorityTQ myPTQ;
 
