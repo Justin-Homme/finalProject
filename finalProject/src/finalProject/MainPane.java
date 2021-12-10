@@ -24,7 +24,6 @@ public class MainPane extends GridPane {
 
 	/** a TextArea to show a temporary test message */
 	private TextArea myTA;
-<<<<<<< HEAD
 
 	/** add task button for the PriorityTQ */
 	private Button addTaskB1;
@@ -53,10 +52,6 @@ public class MainPane extends GridPane {
 	private VBox myVB;
 
 	/** GridPane for holding buttonHB and myVB */
-=======
-	private Button addTaskB;
-	private Button removeTaskB;
->>>>>>> parent of e9c6d2d (buttons)
 
 	public MainPane() {
 		super();
@@ -69,7 +64,6 @@ public class MainPane extends GridPane {
 		myTA = new TextArea();
 		myTA.setPrefSize(150, 300);
 		myTA.setText("This is a test");
-<<<<<<< HEAD
 		myTA.setEditable(false);
 		addTaskB1 = new Button("Add");
 		removeTaskB1 = new Button("Remove");
@@ -125,35 +119,11 @@ public class MainPane extends GridPane {
 		// begin third column
 		myTA = new TextArea();
 		myTA.setPrefSize(150, 300);
-=======
-		addTaskB = new Button("+");
-		removeTaskB = new Button("-");
-		
-		HBox buttonHB = new HBox();
-		buttonHB.setSpacing(10);
-		buttonHB.setPadding(new Insets(20, 20, 20, 20));
-		buttonHB.getChildren().add(addTaskB);
-		buttonHB.getChildren().add(removeTaskB);
-		
-		GridPane myGP = new GridPane();
-		myGP.add(myTA, 0, 0, 1, 1);
-		myGP.add(buttonHB, 0, 2, 1, 2);
-		temp.getChildren().add(myGP);
-
-		myTA = new TextArea(); // the second column
-		myTA.setPrefSize(150, 500);
-		myTA.setText("This is also a test");
-		temp.getChildren().add(myTA);
-
-		myTA = new TextArea(); // the third column
-		myTA.setPrefSize(150, 500);
->>>>>>> parent of e9c6d2d (buttons)
 		myTA.setText("Also a test");
 		myTA.setEditable(false);
 		addTaskB3 = new Button("Add");
 		removeTaskB3 = new Button("Remove");
 
-<<<<<<< HEAD
 		buttonHB = new HBox();
 		buttonHB.setSpacing(10);
 		buttonHB.setPadding(new Insets(20, 0, 20, 0));
@@ -176,8 +146,6 @@ public class MainPane extends GridPane {
 
 		// add all to temp
 		temp.getChildren().add(myGP);
-=======
->>>>>>> parent of e9c6d2d (buttons)
 		getChildren().add(temp);
 
 	} // constructor
