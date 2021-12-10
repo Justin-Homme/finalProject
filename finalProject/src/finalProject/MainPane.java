@@ -63,8 +63,8 @@ public class MainPane extends GridPane {
 		buttonHB2.getChildren().add(removeMessageB);
 
 		GridPane myGP2 = new GridPane();
-		myGP2.add(myTA, 0, 0, 5, 5);
-		myGP2.add(buttonHB2, 1, 5, 1, 2);
+		myGP2.add(myTA, 0, 0, 1, 1);
+		myGP2.add(buttonHB2, 0, 2, 1, 2);
 		temp.getChildren().add(myGP2);
 
 		myTA = new TextArea(); // the third column
@@ -81,7 +81,7 @@ public class MainPane extends GridPane {
 
 		GridPane myGP3 = new GridPane();
 		myGP3.add(myTA, 0, 0, 1, 1);
-		myGP3.add(buttonHB3, 0, 2, 3, 2);
+		myGP3.add(buttonHB3, 0, 2, 1, 2);
 		temp.getChildren().add(myGP3);
 
 		getChildren().add(temp);
