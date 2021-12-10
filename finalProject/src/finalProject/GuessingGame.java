@@ -65,7 +65,7 @@ public class GuessingGame<T> {
 		String breakfast = in.next();
 		in.nextLine();
 		myTree.addRightData(breakfast);
-	} // addAnimal
+	} // addBreakfast
 
 	private void addQuestion() {
 		myTree.addLeftData();
@@ -114,7 +114,7 @@ public class GuessingGame<T> {
 			setResponse();
 		}
 		if (getResponse() == false) {
-			System.out.println("What breakfast were you thinking of?");
+			System.out.println("Darn! What breakfast were you thinking of?");
 			addBreakfast();
 			addQuestion();
 		} else {
