@@ -18,7 +18,7 @@ public class Controller {
 	private PriorityTQ myPTQ;
 
 	/** The stack we will use for part 3 */
-	private Stack myStack;
+	private Stack<String> myStack;
 
 	/** The Guessing game that will be implemented into our GamePane (part 4) */
 	private GuessingGame myGG;
