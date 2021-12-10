@@ -1,11 +1,7 @@
 package finalProject;
 
-<<<<<<< HEAD
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-=======
-import javafx.event.EventHandler;
->>>>>>> parent of fcadb83 (add task)
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -24,11 +20,10 @@ import javafx.scene.layout.VBox;
  * @version Fall 2021
  */
 
-public class MainPane extends GridPane implements EventHandler<ActionEvent> {
+public class MainPane extends GridPane {
 
 	/** a TextArea to show a temporary test message */
 	private TextArea myTA;
-<<<<<<< HEAD
 	
 	/** add task button for the PriorityTQ */
 	private Button addTaskB1;
@@ -57,16 +52,11 @@ public class MainPane extends GridPane implements EventHandler<ActionEvent> {
 	private VBox myVB;
 	/** GridPane for holding buttonHB and myVB */
 	
-=======
-	private Button addTaskB;
-
->>>>>>> parent of fcadb83 (add task)
 	public MainPane() {
 		super();
 		FlowPane temp = new FlowPane();
 		temp.setPrefSize(450, 500);
 
-<<<<<<< HEAD
 		GridPane myGP = new GridPane();
 		
 		// begin first column
@@ -93,6 +83,7 @@ public class MainPane extends GridPane implements EventHandler<ActionEvent> {
 		myVB.getChildren().add(myTF1);
 		myVB.getChildren().add(buttonHB);
 		
+
 		myGP.add(myTA, 0, 0);
 		myGP.add(myVB, 0, 1);
 		// end first column
@@ -100,17 +91,6 @@ public class MainPane extends GridPane implements EventHandler<ActionEvent> {
 		// begin second column
 		myTA = new TextArea(); 
 		myTA.setPrefSize(150, 300);
-=======
-		myTA = new TextArea(); // the first column
-		myTA.setPrefSize(150, 500);
-		myTA.setText("This is a test");
-		temp.getChildren().add(myTA);
-		addTaskB = new Button("+");
-		addTaskB.setOnAction
-
-		myTA = new TextArea(); // the second column
-		myTA.setPrefSize(150, 500);
->>>>>>> parent of fcadb83 (add task)
 		myTA.setText("This is also a test");
 		myTA.setEditable(false);
 		addTaskB2 = new Button("Add");
