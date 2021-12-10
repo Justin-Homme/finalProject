@@ -83,7 +83,6 @@ public class MainPane extends GridPane {
 		myVB.getChildren().add(myTF1);
 		myVB.getChildren().add(buttonHB);
 		
-
 		myGP.add(myTA, 0, 0);
 		myGP.add(myVB, 0, 1);
 		// end first column
