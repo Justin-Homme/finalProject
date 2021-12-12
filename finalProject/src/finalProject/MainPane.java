@@ -1,5 +1,7 @@
 package finalProject;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -66,7 +68,9 @@ public class MainPane extends GridPane {
 		myTA.setText("This is a test");
 		myTA.setEditable(false);
 		addTaskB1 = new Button("Add");
+		addTaskB1.setOnAction((EventHandler<ActionEvent>) this);
 		removeTaskB1 = new Button("Remove");
+		removeTaskB1.setOnAction((EventHandler<ActionEvent>) this);
 
 		buttonHB = new HBox();
 		buttonHB.setSpacing(10);

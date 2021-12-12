@@ -34,34 +34,31 @@ public class Controller extends MainPane {
 
 	public void handleTask(ActionEvent b) {
 		if (b.getSource() == addTaskB1) {
-			myPTQ.insert(new PriorityTQ(myTF1.getText()));
+			myPTQ.insert(new PriorityTaskQ(myTF1.getText()));
 			myTA.setText(PriorityTQ.findMin().task);
 			myTF1.setText("");
 		} else if (b.getSource() == removeTaskB1) {
 			myPTQ.deleteMin();
-			myTA.setText(list.findMin().task);
+			myTA.setText(myPTQ.findMin().task);
 		}
 	}
 
 	public void handleMessage(ActionEvent b) {
 		if (b.getSource() == addTaskB2) {
-			LinkedMSGS.insert(new LinkedMSGS(myTF2.getText()));
+			LinkedMSGS.add(new LinkedMSGS(myTF2.getText()));
 			myTF2.setText("");
 		} else if (b.getSource() == removeTaskB2) {
-			LinkedMSGS.insert(new LinkedMSGS(myTF2.getText()));
+			LinkedMSGS.delete(new LinkedMSGS(myTF2.getText()));
 			myTF2.setText("");
 		}
 	}
 
 	public void handleTaskStack(ActionEvent b) {
-		if (b.getSource() == addTaskB2) {
-			Stack.insert(new PriorityTaskQ(myTF3.getText()));
-			myTA.setText(list.findMin().task);
-			myTF3.setText("");
-		} else if (b.getSource() == addTaskB2) {
-			list.insert(new PriorityTaskQ(myTF3.getText()));
-			myTA.setText(list.findMin().task);
-			myTF3.setText("");
+		if (b.getSource() == addTaskB3) {
+			String addTask = myTF2.getText();
+			myStack.pushTask(addTask);
+		} else if (b.getSource() == removeTaskB3) {
+			myStack.popTask();
 		}
 	}
 
