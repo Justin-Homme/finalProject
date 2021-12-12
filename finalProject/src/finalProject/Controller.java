@@ -25,11 +25,16 @@ public class Controller extends MainPane {
 	/** The Guessing game that will be implemented into our GamePane (part 4) */
 	private GuessingGame myGG;
 
+	/** The circ doublbly linkedlist used for messages */
+	private CircDLL myCDLL;
+
 	public Controller() {
 		// TODO write the constructor
 		myGG = new GuessingGame();
 		myStack = new Stack();
-		myPTQ = new PriorityTQ(dirtyChildren);
+		myPTQ = new PriorityTQ();
+		myCDLL = new CircDLL();
+
 	} // constructor
 
 	public void handleTask(ActionEvent b) {
@@ -45,11 +50,11 @@ public class Controller extends MainPane {
 
 	public void handleMessage(ActionEvent b) {
 		if (b.getSource() == addTaskB2) {
-			LinkedMSGS.add(new LinkedMSGS(myTF2.getText()));
+			String addMSG = myTF3.getText();
+			myCDLL.addItem(addMSG);
 			myTF2.setText("");
 		} else if (b.getSource() == removeTaskB2) {
-			LinkedMSGS.delete(new LinkedMSGS(myTF2.getText()));
-			myTF2.setText("");
+			myCDLL.deleteItem(currentDisplay);
 		}
 	}
 
@@ -57,6 +62,7 @@ public class Controller extends MainPane {
 		if (b.getSource() == addTaskB3) {
 			String addTask = myTF2.getText();
 			myStack.pushTask(addTask);
+			myTF3.setText(addTask);
 		} else if (b.getSource() == removeTaskB3) {
 			myStack.popTask();
 		}
