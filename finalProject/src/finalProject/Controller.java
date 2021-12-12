@@ -1,5 +1,7 @@
 package finalProject;
 
+import javafx.event.ActionEvent;
+
 /**
  * The controller class for our control center GUI application.
  * 
@@ -29,6 +31,21 @@ public class Controller {
 		myStack = new Stack();
 		myPTQ = new PriorityTQ();
 	} // constructor
+
+	public void addTask(ActionEvent b) {
+		if (e.getSource() == addTaskB1) {
+			list.insert(new PriorityTaskQ(myVB.getText()));
+			myTA.setText(list.findMin().task);
+			myVB.setText("");
+		}
+	}
+
+	public void removeTask(ActionEvent b) {
+		if (e.getSource() == removeTaskB1) {
+			list.deleteMin();
+			myTA.setText(list.findMin().task);
+		}
+	}
 
 	public static void main(String[] args) {
 

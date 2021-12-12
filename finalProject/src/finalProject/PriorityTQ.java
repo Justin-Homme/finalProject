@@ -20,6 +20,8 @@ public class PriorityTQ<T> {
 
 	public PriorityTQ(ArrayList<String> task) {
 
+		super();
+
 		list = new BinaryMinHeap<PriorityTaskQ>(100);
 
 	} // Constructor
