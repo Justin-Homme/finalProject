@@ -23,33 +23,33 @@ import javafx.scene.layout.VBox;
 public class MainPane extends GridPane {
 
 	/** a TextArea to show a temporary test message */
-	private TextArea myTA;
+	public TextArea myTA;
 
 	/** add task button for the PriorityTQ */
-	private Button addTaskB1;
+	public Button addTaskB1;
 	/** remove task button for the PriorityTQ */
-	private Button removeTaskB1;
+	public Button removeTaskB1;
 	/** TextField for the PriorityTQ */
-	private TextField myTF1;
+	public TextField myTF1;
 
 	/** add task button for the CircDoubLL */
-	private Button addTaskB2;
+	public Button addTaskB2;
 	/** remove task button for the CircDoubLL */
-	private Button removeTaskB2;
+	public Button removeTaskB2;
 	/** TextField for the CircBoubLL */
-	private TextField myTF2;
+	public TextField myTF2;
 
 	/** add task button for the Stack */
-	private Button addTaskB3;
+	public Button addTaskB3;
 	/** remove task button for the Stack */
-	private Button removeTaskB3;
+	public Button removeTaskB3;
 	/** TextField for the Stack */
-	private TextField myTF3;
+	public TextField myTF3;
 
 	/** HBox for holding add and remove buttons */
-	private HBox buttonHB;
+	public HBox buttonHB;
 	/** VBox for holding the buttonHB and TextField */
-	private VBox myVB;
+	public VBox myVB;
 
 	/** GridPane for holding buttonHB and myVB */
 

@@ -14,7 +14,7 @@ import javafx.event.ActionEvent;
  * @version Fall 2021
  */
 
-public class Controller {
+public class Controller extends MainPane {
 
 	/** The Priority Task Queue that we will use for part 1 */
 	private PriorityTQ myPTQ;
@@ -29,21 +29,39 @@ public class Controller {
 		// TODO write the constructor
 		myGG = new GuessingGame();
 		myStack = new Stack();
-		myPTQ = new PriorityTQ();
+		myPTQ = new PriorityTQ(dirtyChildren);
 	} // constructor
 
-	public void addTask(ActionEvent b) {
-		if (e.getSource() == addTaskB1) {
-			list.insert(new PriorityTaskQ(myVB.getText()));
+	public void handleTask(ActionEvent b) {
+		if (b.getSource() == addTaskB1) {
+			myPTQ.insert(new PriorityTQ(myTF1.getText()));
+			myTA.setText(PriorityTQ.findMin().task);
+			myTF1.setText("");
+		} else if (b.getSource() == removeTaskB1) {
+			myPTQ.deleteMin();
 			myTA.setText(list.findMin().task);
-			myVB.setText("");
 		}
 	}
 
-	public void removeTask(ActionEvent b) {
-		if (e.getSource() == removeTaskB1) {
-			list.deleteMin();
+	public void handleMessage(ActionEvent b) {
+		if (b.getSource() == addTaskB2) {
+			LinkedMSGS.insert(new LinkedMSGS(myTF2.getText()));
+			myTF2.setText("");
+		} else if (b.getSource() == removeTaskB2) {
+			LinkedMSGS.insert(new LinkedMSGS(myTF2.getText()));
+			myTF2.setText("");
+		}
+	}
+
+	public void handleTaskStack(ActionEvent b) {
+		if (b.getSource() == addTaskB2) {
+			Stack.insert(new PriorityTaskQ(myTF3.getText()));
 			myTA.setText(list.findMin().task);
+			myTF3.setText("");
+		} else if (b.getSource() == addTaskB2) {
+			list.insert(new PriorityTaskQ(myTF3.getText()));
+			myTA.setText(list.findMin().task);
+			myTF3.setText("");
 		}
 	}
 
