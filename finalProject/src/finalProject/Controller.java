@@ -27,6 +27,7 @@ public class Controller extends MainPane {
 
 	/** The circ doublbly linkedlist used for messages */
 	private CircDLL myCDLL;
+	private String currentMessage;
 
 	public Controller() {
 		// TODO write the constructor
@@ -37,6 +38,11 @@ public class Controller extends MainPane {
 
 	} // constructor
 
+	/**
+	 * adds and removes tasks displays highest priority task
+	 * 
+	 * @param b
+	 */
 	public void handleTask(ActionEvent b) {
 		if (b.getSource() == addTaskB1) {
 			myPTQ.insert(new PriorityTaskQ(myTF1.getText()));
@@ -48,16 +54,18 @@ public class Controller extends MainPane {
 		}
 	}
 
+	// adds and removes messages
 	public void handleMessage(ActionEvent b) {
 		if (b.getSource() == addTaskB2) {
 			String addMSG = myTF3.getText();
 			myCDLL.addItem(addMSG);
 			myTF2.setText("");
 		} else if (b.getSource() == removeTaskB2) {
-			myCDLL.deleteItem(currentDisplay);
+			myCDLL.deleteItem(currentMessage);
 		}
 	}
 
+	// adds and removes tasks and displays top tasks
 	public void handleTaskStack(ActionEvent b) {
 		if (b.getSource() == addTaskB3) {
 			String addTask = myTF2.getText();
