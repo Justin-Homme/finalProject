@@ -45,6 +45,7 @@ public class MainPane extends GridPane {
 
 		// begin first column
 		firstCol = new Column();
+		firstCol.addPriorityTF();	// we need a priority TF for this column
 		myGP.add(firstCol, 0, 0);
 		// end first column
 
@@ -73,6 +74,10 @@ public class MainPane extends GridPane {
 		private TextArea myTA;
 		/** TextField for the text to be added */
 		private TextField textTF;
+		/** a TextField for the priority that will only be added via addPriorityTF method */
+		private TextField priorityTF;
+		/** HBox for textFields*/
+		private HBox txtFHB;
 		
 		public Column() {
 			super();
@@ -93,17 +98,28 @@ public class MainPane extends GridPane {
 			buttonHB.getChildren().add(removeTaskB);
 			
 			textTF = new TextField();
-			textTF.setPrefSize(50, 50);
+			textTF.setPrefSize(110, 50);
+			
+			txtFHB = new HBox();
+			txtFHB.setAlignment(Pos.CENTER);
+			txtFHB.getChildren().add(textTF);
 			
 			myVB = new VBox();
 			myVB.setPrefSize(150, 100);
 			myVB.setPadding(new Insets(20, 20, 20, 20));
 			myVB.setAlignment(Pos.CENTER);
-			myVB.getChildren().add(textTF);
+			myVB.getChildren().add(txtFHB);
 			myVB.getChildren().add(buttonHB);
 			
 			this.add(myTA, 0, 0);
 			this.add(myVB, 0, 1);
 		} // constructor
-	}
-}
+		
+		public void addPriorityTF() {
+			textTF.setPrefWidth(75);
+			priorityTF = new TextField();
+			priorityTF.setPrefSize(35, 50);
+			txtFHB.getChildren().add(0, priorityTF);
+		} // addPriorityTF
+	} // Column class
+} // MainPane class
