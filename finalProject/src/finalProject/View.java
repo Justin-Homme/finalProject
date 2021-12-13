@@ -18,10 +18,11 @@ import javafx.stage.Stage;
  */
 
 public class View extends Application {
-
+	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		try {
+			
 			BorderPane root = new BorderPane();
 			Scene scene = new Scene(root, 625, 500);
 			primaryStage.setScene(scene);

@@ -19,7 +19,9 @@ public class PriorityTQ {
 	public PriorityTQ() {
 
 		list = new BinaryMinHeap<>(100);
-		minTask = list.findMin();
+		if(list.isEmpty() == false) {
+			minTask = list.findMin();
+		}
 	} // Constructor
 
 	public void addPTQ(String task, int priority) {

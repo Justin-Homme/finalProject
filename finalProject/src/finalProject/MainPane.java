@@ -35,6 +35,8 @@ public class MainPane extends GridPane {
 	private HBox buttonHB;
 	/** VBox for holding the buttonHB and TextField */
 	private VBox myVB;
+	
+	private Controller myController;
 
 	public MainPane() {
 		super();
@@ -62,7 +64,6 @@ public class MainPane extends GridPane {
 		// add all to temp
 		temp.getChildren().add(myGP);
 		getChildren().add(temp);
-
 	} // constructor
 
 	public Column getFirstCol() {
@@ -92,14 +93,8 @@ public class MainPane extends GridPane {
 			myTA.setEditable(false);
 			
 			addTaskB = new Button("Add");
-//			addTaskB.setOnAction(new EventHandler<ActionEvent>(){
-//				@Override
-//				public void handle(ActionEvent e) {
-//					Controller.handleTask(e);
-//				}
-//			});
 			removeTaskB = new Button("Remove");
-			removeTaskB.setOnAction((EventHandler<ActionEvent>) this);
+//			removeTaskB.setOnAction((EventHandler<ActionEvent>) this);
 			
 			buttonHB = new HBox();
 			buttonHB.setSpacing(10);
