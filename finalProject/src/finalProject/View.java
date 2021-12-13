@@ -56,8 +56,8 @@ public class View extends Application {
 		private String currentMessage;
 
 		private void rotateMessage() {
-			if (currentMessage.equals(myCDLL.getLast())) {
-				currentMessage = currentMessage.nxt;
+			if (currentMessage.equals(myCDLL.getPrev())) {
+				currentMessage.equals(myCDLL.getNxt());
 			}
 		}
 

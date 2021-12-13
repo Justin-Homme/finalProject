@@ -133,18 +133,18 @@ public class CircDLL<T> {
 			ListNode cur = head.nxt;
 			ListNode prev = head;
 			while (cur != tail) {
-				if (cur.rdata.equals(data)) {	// we found the node we are looking for
-					prev.nxt = cur.nxt; 		// changes the nxt pointer of the previous node to the next node
-					cur.nxt.prev = cur.prev;	// changes the prev pointer of the next node to the previous node
+				if (cur.rdata.equals(data)) { // we found the node we are looking for
+					prev.nxt = cur.nxt; // changes the nxt pointer of the previous node to the next node
+					cur.nxt.prev = cur.prev; // changes the prev pointer of the next node to the previous node
 												// now the cur node has no connections
 					size = size - 1;
 					break;
-				} else {	// keep looking
+				} else { // keep looking
 					prev = prev.nxt;
 					cur = cur.nxt;
 				}
 			}
-		} else {	// couldn't find it in the list
+		} else { // couldn't find it in the list
 			throw new IllegalArgumentException("You cannot delete data that is not in the linked list.");
 		}
 	}
@@ -157,6 +157,14 @@ public class CircDLL<T> {
 	 */
 	public void addItem(T data) {
 		// TODO write this for a CDLL
+	}
+
+	public ListNode getPrev() {
+		return prev;
+	}
+
+	public ListNode getNxt() {
+		return nxt;
 	}
 
 }
