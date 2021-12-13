@@ -33,6 +33,8 @@ public class MainPane extends GridPane {
 	public Button removeTaskB1;
 	/** TextField for the PriorityTQ */
 	public TextField myTF1;
+	/** TextField for int Priority */
+	public TextField myintTF1;
 
 	/** add task button for the CircDoubLL */
 	public Button addTaskB2;
@@ -80,15 +82,18 @@ public class MainPane extends GridPane {
 
 		myTF1 = new TextField();
 		myTF1.setPrefSize(50, 50);
+		myintTF1.setPrefSize(10, 10);
 
 		myVB = new VBox();
 		myVB.setPrefSize(150, 100);
 		myVB.setPadding(new Insets(20, 20, 20, 20));
 		myVB.setAlignment(Pos.CENTER);
 		myVB.getChildren().add(myTF1);
+		myVB.getChildren().add(myintTF1);
 		myVB.getChildren().add(buttonHB);
 
 		myGP.add(myTA, 0, 0);
+		myGP.add(myintTF1, 0, 0);
 		myGP.add(myVB, 0, 1);
 		// end first column
 
@@ -155,7 +160,6 @@ public class MainPane extends GridPane {
 	} // constructor
 
 	private class Column extends GridPane {
-		
-		
+
 	}
 }

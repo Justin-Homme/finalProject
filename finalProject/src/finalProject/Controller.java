@@ -1,5 +1,6 @@
 package finalProject;
 
+import finalProject.PriorityTQ.PriorityTaskQ;
 import javafx.event.ActionEvent;
 
 /**
@@ -46,7 +47,7 @@ public class Controller extends MainPane {
 	public void handleTask(ActionEvent b) {
 		if (b.getSource() == addTaskB1) {
 			myPTQ.insert(new PriorityTaskQ(myTF1.getText()));
-			myTA.setText(PriorityTQ.findMin().task);
+			myTA.setText(myPTQ.findMin());
 			myTF1.setText("");
 		} else if (b.getSource() == removeTaskB1) {
 			myPTQ.deleteMin();
