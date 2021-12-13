@@ -48,9 +48,10 @@ public class Controller extends MainPane {
 	 * @param b
 	 */
 	public void handleTask(ActionEvent b) {
-		if (b.getSource() == myMainPane.getFirstCol().getAddTaskB()) {
-			myPTQ.addPTQ(myMainPane.getFirstCol().getTextTF().getText(), Integer.parseInt(myMainPane.getFirstCol().getPriorityTF().getText()));
-			myMainPane.getFirstCol()..setText(myPTQ.findMin());
+		Column firstCol = myMainPane.getFirstCol();
+		if (b.getSource() == firstCol.getAddTaskB()) {
+			myPTQ.addPTQ(firstCol.getTextTF().getText(), Integer.parseInt(firstCol.getPriorityTF().getText()));
+			firstCol..setText(myPTQ.findMin());
 			textTF.setText("");
 		} else if (b.getSource() == removeTaskB) {
 			myPTQ.deleteMin();

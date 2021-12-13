@@ -137,7 +137,11 @@ public class MainPane extends GridPane {
 				throw new IllegalArgumentException("There is no priority text field for this column.");
 			} else {
 				return priorityTF;
-			}
+			}	
+		}
+		
+		public TextArea getMyTA() {
+			return myTA;
 		}
 		
 		public void addPriorityTF() {
