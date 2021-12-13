@@ -167,12 +167,12 @@ public class CircDLL<T extends Comparable<? super T>> {
 		size++;
 	}
 
-	public ListNode getPrev() {
-		return prev;
-	}
-
-	public ListNode getNxt() {
-		return nxt;
-	}
+//	public ListNode getPrev() {
+//		return prev;
+//	}
+//
+//	public ListNode getNxt() {
+//		return nxt;
+//	}
 
 }

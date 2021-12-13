@@ -34,10 +34,10 @@ public class Controller extends MainPane {
 
 	public Controller() {
 		// TODO write the constructor
-		myGG = new GuessingGame();
-		myStack = new Stack<String>();
+//		myGG = new GuessingGame();
+//		myStack = new Stack<String>();
 		myPTQ = new PriorityTQ();
-		myCDLL = new CircDLL();
+//		myCDLL = new CircDLL();
 		myMainPane = new MainPane();
 
 	} // constructor
@@ -51,35 +51,35 @@ public class Controller extends MainPane {
 		Column firstCol = myMainPane.getFirstCol();
 		if (b.getSource() == firstCol.getAddTaskB()) {
 			myPTQ.addPTQ(firstCol.getTextTF().getText(), Integer.parseInt(firstCol.getPriorityTF().getText()));
-			firstCol..setText(myPTQ.findMin());
-			textTF.setText("");
-		} else if (b.getSource() == removeTaskB) {
-			myPTQ.deleteMin();
-			myTA.setText(myPTQ.findMin().task);
+			firstCol.getMyTA().setText(myPTQ.toString());
+			firstCol.getTextTF().setText("");
+		} else if (b.getSource() == firstCol.getRemoveTaskB()) {
+			myPTQ.list.deleteMin();
+			firstCol.getMyTA().setText(myPTQ.toString());
 		}
 	}
-
-	// adds and removes messages
-	public void handleMessage(ActionEvent b) {
-		if (b.getSource() == addTaskB) {
-			String addMSG = textTF.getText();
-			myCDLL.addItem(addMSG);
-			textTF.setText("");
-		} else if (b.getSource() == removeTaskB) {
-			myCDLL.deleteItem(currentMessage);
-		}
-	}
-
-	// adds and removes tasks and displays top tasks
-	public void handleTaskStack(ActionEvent b) {
-		if (b.getSource() == addTaskB) {
-			String addTask = textTF.getText();
-			myStack.pushTask(addTask);
-			textTF.setText(addTask);
-		} else if (b.getSource() == removeTaskB) {
-			myStack.popTask();
-		}
-	}
+//
+//	// adds and removes messages
+//	public void handleMessage(ActionEvent b) {
+//		if (b.getSource() == addTaskB) {
+//			String addMSG = textTF.getText();
+//			myCDLL.addItem(addMSG);
+//			textTF.setText("");
+//		} else if (b.getSource() == removeTaskB) {
+//			myCDLL.deleteItem(currentMessage);
+//		}
+//	}
+//
+//	// adds and removes tasks and displays top tasks
+//	public void handleTaskStack(ActionEvent b) {
+//		if (b.getSource() == addTaskB) {
+//			String addTask = textTF.getText();
+//			myStack.pushTask(addTask);
+//			textTF.setText(addTask);
+//		} else if (b.getSource() == removeTaskB) {
+//			myStack.popTask();
+//		}
+//	}
 
 	public static void main(String[] args) {
 

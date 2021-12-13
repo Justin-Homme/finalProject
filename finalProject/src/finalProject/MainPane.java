@@ -84,21 +84,22 @@ public class MainPane extends GridPane {
 		/** HBox for textFields*/
 		private HBox txtFHB;
 		
-		private Controller myController;
-		
 		public Column() {
 			super();
-			
-			myController = new Controller();
 			
 			myTA = new TextArea();
 			myTA.setPrefSize(150, 300);
 			myTA.setEditable(false);
 			
 			addTaskB = new Button("Add");
-			addTaskB.setOnAction((EventHandler<ActionEvent>) this);
+//			addTaskB.setOnAction(new EventHandler<ActionEvent>(){
+//				@Override
+//				public void handle(ActionEvent e) {
+//					Controller.handleTask(e);
+//				}
+//			});
 			removeTaskB = new Button("Remove");
-//			removeTaskB.setOnAction((EventHandler<ActionEvent>) this);
+			removeTaskB.setOnAction((EventHandler<ActionEvent>) this);
 			
 			buttonHB = new HBox();
 			buttonHB.setSpacing(10);
@@ -126,11 +127,15 @@ public class MainPane extends GridPane {
 		
 		public Button getAddTaskB() {
 			return addTaskB;
-		}
+		} // getAddTaskB
+
+		public Button getRemoveTaskB() {
+			return removeTaskB;
+		} // getRemoveTaskB
 		
 		public TextField getTextTF() {
 			return textTF;
-		}
+		} // getTextTF
 		
 		public TextField getPriorityTF() throws IllegalArgumentException {
 			if(priorityTF == null) {
@@ -138,11 +143,11 @@ public class MainPane extends GridPane {
 			} else {
 				return priorityTF;
 			}	
-		}
+		} // getPriorityTF
 		
 		public TextArea getMyTA() {
 			return myTA;
-		}
+		} // getMyTA
 		
 		public void addPriorityTF() {
 			textTF.setPrefWidth(75);
@@ -150,5 +155,6 @@ public class MainPane extends GridPane {
 			priorityTF.setPrefSize(35, 50);
 			txtFHB.getChildren().add(0, priorityTF);
 		} // addPriorityTF
+		
 	} // Column class
 } // MainPane class

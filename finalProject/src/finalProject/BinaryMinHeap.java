@@ -167,4 +167,8 @@ public class BinaryMinHeap<T extends Comparable<? super T>> {
 			array[i] = bmh.deleteMin();
 		}
 	} // heapSort
+	
+	public T[] getHeap() {
+		return heap;
+	}
 }

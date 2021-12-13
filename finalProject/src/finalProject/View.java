@@ -50,34 +50,34 @@ public class View extends Application {
 		}
 	} // start
 
-	public class Timer {
-
-		private CircDLL<String> myCDLL;
-		private String currentMessage;
-		private Timer timer;
-
-		private void rotateMessage() {
-			if (currentMessage.equals(myCDLL.getPrev())) {
-				currentMessage.equals(myCDLL.getNxt());
-			}
-		}
-
-		public void timer(int seconds) {
-			timer = new Timer();
-			Timer.schedule(new showMSG(), seconds * 1000);
-		}
-
-		class showMSG extends TimerTask {
-			@Override
-			public void run() {
-				rotateMessage();
-				myTA.setText(currentMessage);
-				timer.cancel();
-				timer(5);
-			}
-		}
-
-	}
+//	public class Timer {
+//
+//		private CircDLL<String> myCDLL;
+//		private String currentMessage;
+//		private Timer timer;
+//
+//		private void rotateMessage() {
+//			if (currentMessage.equals(myCDLL.getPrev())) {
+//				currentMessage.equals(myCDLL.getNxt());
+//			}
+//		}
+//
+//		public void timer(int seconds) {
+//			timer = new Timer();
+//			Timer.schedule(new showMSG(), seconds * 1000);
+//		}
+//
+//		class showMSG extends TimerTask {
+//			@Override
+//			public void run() {
+//				rotateMessage();
+//				myTA.setText(currentMessage);
+//				timer.cancel();
+//				timer(5);
+//			}
+//		}
+//
+//	}
 
 	public static void main(String[] args) {
 		launch(args);

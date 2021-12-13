@@ -63,4 +63,16 @@ public class PriorityTQ {
 		} // compareTo
 	} // PriorityTaskQ class
 
+	public String toString() {
+		String myStr = "";
+		PriorityTaskQ[] myHeap = list.getHeap();
+		for(int i = 0; i < 10; i++) {
+			if(myHeap.length-1 == i) {
+				i = 10;
+			}
+			myStr += (i + 1) + " " + myHeap[i].getTask() + "\n";
+		}
+		return myStr;
+	}
+	
 } // PriorityTQ class
