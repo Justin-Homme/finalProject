@@ -65,7 +65,12 @@ public class MainPane extends GridPane {
 
 	} // constructor
 
-	private class Column extends GridPane {
+	public Column getFirstCol() {
+		return firstCol;
+	}
+	
+	// ask Albing if this visibility is ok
+	protected class Column extends GridPane {
 		/** a button for adding tasks*/
 		private Button addTaskB;
 		/** a button for removing tasks */
@@ -79,15 +84,19 @@ public class MainPane extends GridPane {
 		/** HBox for textFields*/
 		private HBox txtFHB;
 		
+		private Controller myController;
+		
 		public Column() {
 			super();
+			
+			myController = new Controller();
 			
 			myTA = new TextArea();
 			myTA.setPrefSize(150, 300);
 			myTA.setEditable(false);
 			
 			addTaskB = new Button("Add");
-//			addTaskB.setOnAction((EventHandler<ActionEvent>) this);
+			addTaskB.setOnAction((EventHandler<ActionEvent>) this);
 			removeTaskB = new Button("Remove");
 //			removeTaskB.setOnAction((EventHandler<ActionEvent>) this);
 			
@@ -114,6 +123,22 @@ public class MainPane extends GridPane {
 			this.add(myTA, 0, 0);
 			this.add(myVB, 0, 1);
 		} // constructor
+		
+		public Button getAddTaskB() {
+			return addTaskB;
+		}
+		
+		public TextField getTextTF() {
+			return textTF;
+		}
+		
+		public TextField getPriorityTF() throws IllegalArgumentException {
+			if(priorityTF == null) {
+				throw new IllegalArgumentException("There is no priority text field for this column.");
+			} else {
+				return priorityTF;
+			}
+		}
 		
 		public void addPriorityTF() {
 			textTF.setPrefWidth(75);

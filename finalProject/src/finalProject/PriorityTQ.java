@@ -60,4 +60,5 @@ public class PriorityTQ {
 			}
 		} // compareTo
 	} // PriorityTaskQ class
+	
 } // PriorityTQ class
