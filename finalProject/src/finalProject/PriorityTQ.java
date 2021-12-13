@@ -26,7 +26,7 @@ public class PriorityTQ {
 	
 	public void addPTQ(String task, int priority) {
 		list.insert(new PriorityTaskQ(task, priority));
-	}
+	} // addPTQ
 
 	/**
 	 * @param task     the task to be added to the queue
@@ -43,11 +43,11 @@ public class PriorityTQ {
 		public PriorityTaskQ(String task, int priority) {
 			this.task = task;
 			this.priority = priority;
-		}
+		} // Constructor
 
 		public int getPriority() {
 			return priority;
-		}
+		} // getPriority
 
 		@Override
 		public int compareTo(PriorityTaskQ t) {
@@ -58,6 +58,6 @@ public class PriorityTQ {
 			} else {
 				return 0;
 			}
-		}
-	}
-}
+		} // compareTo
+	} // PriorityTaskQ class
+} // PriorityTQ class
