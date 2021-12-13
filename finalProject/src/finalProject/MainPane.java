@@ -25,35 +25,35 @@ import javafx.scene.layout.VBox;
 public class MainPane extends GridPane {
 
 	/** a TextArea to show a temporary test message */
-	public TextArea myTA;
+	private TextArea myTA;
 
 	/** add task button for the PriorityTQ */
-	public Button addTaskB1;
+	private Button addTaskB1;
 	/** remove task button for the PriorityTQ */
-	public Button removeTaskB1;
+	private Button removeTaskB1;
 	/** TextField for the PriorityTQ */
-	public TextField myTF1;
+	private TextField myTF1;
 	/** TextField for int Priority */
-	public TextField myintTF1;
+	private TextField myintTF1;
 
 	/** add task button for the CircDoubLL */
-	public Button addTaskB2;
+	private Button addTaskB2;
 	/** remove task button for the CircDoubLL */
-	public Button removeTaskB2;
+	private Button removeTaskB2;
 	/** TextField for the CircBoubLL */
-	public TextField myTF2;
+	private TextField myTF2;
 
 	/** add task button for the Stack */
-	public Button addTaskB3;
+	private Button addTaskB3;
 	/** remove task button for the Stack */
-	public Button removeTaskB3;
+	private Button removeTaskB3;
 	/** TextField for the Stack */
-	public TextField myTF3;
+	private TextField myTF3;
 
 	/** HBox for holding add and remove buttons */
-	public HBox buttonHB;
+	private HBox buttonHB;
 	/** VBox for holding the buttonHB and TextField */
-	public VBox myVB;
+	private VBox myVB;
 
 	/** GridPane for holding buttonHB and myVB */
 
@@ -160,6 +160,6 @@ public class MainPane extends GridPane {
 	} // constructor
 
 	private class Column extends GridPane {
-
+		
 	}
 }
