@@ -1,6 +1,5 @@
 package finalProject;
 
-import java.util.Timer;
 import java.util.TimerTask;
 
 import javafx.application.Application;
@@ -51,28 +50,32 @@ public class View extends Application {
 		}
 	} // start
 
-	private CircDLL<String> myCDLL;
-	private String currentMessage;
+	public class Timer {
 
-	private void rotateMessage() {
-		if (currentMessage.equals(myCDLL.getLast())) {
-			currentMessage = currentMessage.nxt;
+		private CircDLL<String> myCDLL;
+		private String currentMessage;
+
+		private void rotateMessage() {
+			if (currentMessage.equals(myCDLL.getLast())) {
+				currentMessage = currentMessage.nxt;
+			}
 		}
-	}
 
-	public void timer(int seconds) {
-		timer = new Timer();
-		Timer.schedule(new showMSG(), seconds * 1000);
-	}
-
-	class showMSG extends TimerTask {
-		@Override
-		public void run() {
-			rotateMessage();
-			myTA.setText(currentDisplay);
-			timer.cancel();
-			timer(5);
+		public void timer(int seconds) {
+			timer = new Timer();
+			Timer.schedule(new showMSG(), seconds * 1000);
 		}
+
+		class showMSG extends TimerTask {
+			@Override
+			public void run() {
+				rotateMessage();
+				myTA.setText(currentMessage);
+				timer.cancel();
+				timer(5);
+			}
+		}
+
 	}
 
 	public static void main(String[] args) {
