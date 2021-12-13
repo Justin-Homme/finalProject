@@ -156,7 +156,11 @@ public class CircDLL<T> {
 	 * @param data the data (of type T) that we want to add to our SortedLinkedList
 	 */
 	public void addItem(T data) {
-		// TODO write this for a CDLL
+		ListNode prev = head;
+		ListNode cur = head.nxt;
+		
+		// loop until new element placement is found /
+		while (cur !=)
 	}
 
 	public ListNode getPrev() {

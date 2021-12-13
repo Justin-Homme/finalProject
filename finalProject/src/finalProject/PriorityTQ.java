@@ -1,7 +1,5 @@
 package finalProject;
 
-import java.util.ArrayList;
-
 /**
  * A class for the first part of our Command Center This is the priority task
  * queue that will use a minHeap
@@ -23,7 +21,7 @@ public class PriorityTQ {
 		list = new BinaryMinHeap<>(100);
 		minTask = list.findMin();
 	} // Constructor
-	
+
 	public void addPTQ(String task, int priority) {
 		list.insert(new PriorityTaskQ(task, priority));
 	} // addPTQ
@@ -45,6 +43,10 @@ public class PriorityTQ {
 			this.priority = priority;
 		} // Constructor
 
+		public String getTask() {
+			return task;
+		} // getTask
+
 		public int getPriority() {
 			return priority;
 		} // getPriority
@@ -60,5 +62,5 @@ public class PriorityTQ {
 			}
 		} // compareTo
 	} // PriorityTaskQ class
-	
+
 } // PriorityTQ class
