@@ -45,11 +45,11 @@ public class Controller extends MainPane {
 	 * @param b
 	 */
 	public void handleTask(ActionEvent b) {
-		if (b.getSource() == addTaskB1) {
-			myPTQ.insert(new PriorityTaskQ(myTF1.getText()));
+		if (b.getSource() == addTaskB) {
+			myPTQ.insert(new PriorityTaskQ(textTF.getText()));
 			myTA.setText(myPTQ.findMin());
-			myTF1.setText("");
-		} else if (b.getSource() == removeTaskB1) {
+			textTF.setText("");
+		} else if (b.getSource() == removeTaskB) {
 			myPTQ.deleteMin();
 			myTA.setText(myPTQ.findMin().task);
 		}
@@ -57,22 +57,22 @@ public class Controller extends MainPane {
 
 	// adds and removes messages
 	public void handleMessage(ActionEvent b) {
-		if (b.getSource() == addTaskB2) {
-			String addMSG = myTF3.getText();
+		if (b.getSource() == addTaskB) {
+			String addMSG = textTF.getText();
 			myCDLL.addItem(addMSG);
-			myTF2.setText("");
-		} else if (b.getSource() == removeTaskB2) {
+			textTF.setText("");
+		} else if (b.getSource() == removeTaskB) {
 			myCDLL.deleteItem(currentMessage);
 		}
 	}
 
 	// adds and removes tasks and displays top tasks
 	public void handleTaskStack(ActionEvent b) {
-		if (b.getSource() == addTaskB3) {
-			String addTask = myTF2.getText();
+		if (b.getSource() == addTaskB) {
+			String addTask = textTF.getText();
 			myStack.pushTask(addTask);
-			myTF3.setText(addTask);
-		} else if (b.getSource() == removeTaskB3) {
+			textTF.setText(addTask);
+		} else if (b.getSource() == removeTaskB) {
 			myStack.popTask();
 		}
 	}
