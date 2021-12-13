@@ -10,7 +10,7 @@ package finalProject;
  * @version 12/10/21
  * @param <T>
  */
-public class CircDLL<T> {
+public class CircDLL<T extends Comparable<? super T>> {
 
 	/** The first node in the list */
 	private ListNode head; // the first node in our linked list
@@ -158,9 +158,17 @@ public class CircDLL<T> {
 	public void addItem(T data) {
 		ListNode prev = head;
 		ListNode cur = head.nxt;
-		
+
 		// loop until new element placement is found /
-		while (cur !=)
+		while (cur != tail && data.compareTo(cur.rdata) >= 0) {
+			prev = cur;
+			cur = cur.nxt;
+		}
+
+		// putting new node with data element in place /
+		ListNode node = new ListNode(data, cur.nxt, cur.prev);
+		prev.nxt = node;
+		size++;
 	}
 
 	public ListNode getPrev() {
