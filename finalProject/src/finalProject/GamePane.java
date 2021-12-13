@@ -19,9 +19,9 @@ public class GamePane extends GridPane {
 
 	/** a text area to show a temporary test message */
 	private TextArea myTA;
-
+	/** a button for answering yes */
 	private Button yesB;
-
+	/** a button for answering no */
 	private Button noB;
 
 	public GamePane() {
