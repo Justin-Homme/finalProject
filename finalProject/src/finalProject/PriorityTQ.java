@@ -10,32 +10,35 @@ import java.util.ArrayList;
  * @version 12/2/21
  *
  */
-public class PriorityTQ<T> {
+public class PriorityTQ {
 
 	/** Sorted list of tasks */
 	BinaryMinHeap<PriorityTaskQ> list;
 
 	/** The current highest priority task */
-	private T minTask;
+	private PriorityTaskQ minTask;
 
-	public PriorityTQ(ArrayList<String> task) {
+	public PriorityTQ() {
 
-		super();
-
-		list = new BinaryMinHeap<PriorityTaskQ>(100);
-
+		list = new BinaryMinHeap<>(100);
+		minTask = list.findMin();
 	} // Constructor
+	
+	public void addPTQ(String task, int priority) {
+		list.insert(new PriorityTaskQ(task, priority));
+	}
 
 	/**
 	 * @param task     the task to be added to the queue
 	 * @param priority an int signifying the priority of the task (1 is highest
 	 *                 priority, 100 is lowest priority)
 	 */
-	private class PriorityTaskQ implements Comparable<PriorityTaskQ> {
+	public class PriorityTaskQ implements Comparable<PriorityTaskQ> {
 
-		String task;
-
-		int priority;
+		/** the task */
+		private String task;
+		/** the int denoting the task's priority */
+		private int priority;
 
 		public PriorityTaskQ(String task, int priority) {
 			this.task = task;

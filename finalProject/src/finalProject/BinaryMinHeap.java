@@ -31,7 +31,7 @@ public class BinaryMinHeap<T extends Comparable<? super T>> {
 	/**
 	 * Constructor Note this uses the supplied array as our heap storage, not a copy
 	 * 
-	 * @param array Turn this array into a maxHeap
+	 * @param array Turn this array into a minHeap
 	 */
 	public BinaryMinHeap(T[] array) {
 		buildHeap(array);
@@ -68,8 +68,8 @@ public class BinaryMinHeap<T extends Comparable<? super T>> {
 		int parent = (curIndex - 1) / 2; // N.B.: integer division
 		heap[curIndex] = item;
 		size++;
-		// while we aren't at the root and curIndex item is < than its parent...
-		while (curIndex != 0 && heap[curIndex].compareTo(heap[parent]) < 0) {
+		// while we aren't at the root and curIndex item is > than its parent...
+		while (curIndex != 0 && heap[curIndex].compareTo(heap[parent]) > 0) {
 			T temp = heap[curIndex];
 			heap[curIndex] = heap[parent];
 			heap[parent] = temp;

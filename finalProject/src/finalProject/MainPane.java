@@ -154,4 +154,8 @@ public class MainPane extends GridPane {
 
 	} // constructor
 
+	private class Column extends GridPane {
+		
+		
+	}
 }
