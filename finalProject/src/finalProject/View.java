@@ -54,6 +54,7 @@ public class View extends Application {
 
 		private CircDLL<String> myCDLL;
 		private String currentMessage;
+		private Timer timer;
 
 		private void rotateMessage() {
 			if (currentMessage.equals(myCDLL.getPrev())) {
