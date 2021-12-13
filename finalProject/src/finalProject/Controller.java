@@ -33,7 +33,7 @@ public class Controller extends MainPane {
 	public Controller() {
 		// TODO write the constructor
 		myGG = new GuessingGame();
-		myStack = new Stack();
+		myStack = new Stack<String>();
 		myPTQ = new PriorityTQ();
 		myCDLL = new CircDLL();
 
