@@ -27,7 +27,7 @@ public class Controller extends MainPane {
 	private GuessingGame myGG;
 
 	/** The circ doublbly linkedlist used for messages */
-	private CircDLL myCDLL;
+	private CircDLL<String> myCDLL;
 	private String currentMessage;
 
 	public Controller() {
