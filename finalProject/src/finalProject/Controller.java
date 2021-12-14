@@ -1,6 +1,8 @@
 package finalProject;
 
+import finalProject.MainPane.Column;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 
 /**
  * The controller class for our control center GUI application.
@@ -14,7 +16,7 @@ import javafx.event.ActionEvent;
  * @version Fall 2021
  */
 
-public class Controller extends MainPane {
+public class Controller implements EventHandler<ActionEvent> {
 
 	/** The Priority Task Queue that we will use for part 1 */
 	private PriorityTQ myPTQ;
@@ -37,7 +39,7 @@ public class Controller extends MainPane {
 //		myStack = new Stack<String>();
 		myPTQ = new PriorityTQ();
 //		myCDLL = new CircDLL();
-		myMainPane = new MainPane();
+		myMainPane = new MainPane(this);
 
 	} // constructor
 
@@ -51,6 +53,10 @@ public class Controller extends MainPane {
 
 	public String getCurMSG() {
 		return currentMessage;
+	}
+	
+	public MainPane getMyMainPane() {
+		return myMainPane;
 	}
 
 	/**
@@ -96,5 +102,14 @@ public class Controller extends MainPane {
 
 	public static void main(String[] args) {
 
+	}
+
+	@Override
+	public void handle(ActionEvent b) {
+		Column secondCol = myMainPane.getSecondCol();
+		if (b.getSource() == secondCol.getAddTaskB()) {
+			handleTask(b);
+		}
+		
 	}
 }

@@ -36,8 +36,11 @@ public class MainPane extends GridPane {
 
 	private Controller myController;
 
-	public MainPane() {
+	public MainPane(Controller myController) {
 		super();
+		
+		this.myController = myController;
+		
 		FlowPane temp = new FlowPane();
 		temp.setPrefSize(450, 500);
 
@@ -92,15 +95,16 @@ public class MainPane extends GridPane {
 		private TextField priorityTF;
 		/** HBox for textFields */
 		private HBox txtFHB;
-
+		
 		public Column() {
 			super();
-
+			
 			myTA = new TextArea();
 			myTA.setPrefSize(150, 300);
 			myTA.setEditable(false);
 
 			addTaskB = new Button("Add");
+			addTaskB.setOnAction(myController);
 			removeTaskB = new Button("Remove");
 //			removeTaskB.setOnAction((EventHandler<ActionEvent>) this);
 

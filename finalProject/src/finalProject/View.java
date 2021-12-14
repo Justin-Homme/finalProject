@@ -17,10 +17,13 @@ import javafx.stage.Stage;
 
 public class View extends Application {
 
+	private Controller myController;
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		try {
 
+			myController = new Controller();
+			
 			BorderPane root = new BorderPane();
 			Scene scene = new Scene(root, 625, 500);
 			primaryStage.setScene(scene);
@@ -34,7 +37,7 @@ public class View extends Application {
 			myFP.setPrefSize(175, 500); // set to take up the remaining width of the root
 			root.setRight(myFP);
 
-			MainPane myMainTab = new MainPane(); // the MainPane
+			MainPane myMainTab = myController.getMyMainPane(); // the MainPane
 			myTP.getTabs().add(new Tab("Main", myMainTab));
 
 			ListPane myListPane = new ListPane(); // the ListPane
