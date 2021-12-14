@@ -1,6 +1,5 @@
 package finalProject;
 
-import finalProject.PriorityTQ.PriorityTaskQ;
 import javafx.event.ActionEvent;
 
 /**
@@ -29,7 +28,7 @@ public class Controller extends MainPane {
 	/** The circ doublbly linkedlist used for messages */
 	private CircDLL<String> myCDLL;
 	private String currentMessage;
-	
+
 	private MainPane myMainPane;
 
 	public Controller() {
@@ -41,6 +40,18 @@ public class Controller extends MainPane {
 		myMainPane = new MainPane();
 
 	} // constructor
+
+	public GuessingGame getMyGG() {
+		return myGG;
+	}
+
+	public CircDLL<String> getMyCDLL() {
+		return myCDLL;
+	}
+
+	public String getCurMSG() {
+		return currentMessage;
+	}
 
 	/**
 	 * adds and removes tasks displays highest priority task

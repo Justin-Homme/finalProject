@@ -1,7 +1,5 @@
 package finalProject;
 
-import java.util.TimerTask;
-
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Tab;
@@ -18,11 +16,11 @@ import javafx.stage.Stage;
  */
 
 public class View extends Application {
-	
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		try {
-			
+
 			BorderPane root = new BorderPane();
 			Scene scene = new Scene(root, 625, 500);
 			primaryStage.setScene(scene);
@@ -51,33 +49,35 @@ public class View extends Application {
 		}
 	} // start
 
-//	public class Timer {
-//
-//		private CircDLL<String> myCDLL;
-//		private String currentMessage;
+//	public class Timer extends Controller {
+
 //		private Timer timer;
-//
+
 //		private void rotateMessage() {
-//			if (currentMessage.equals(myCDLL.getPrev())) {
-//				currentMessage.equals(myCDLL.getNxt());
+//			if (getCurMSG().equals(getMyCDLL().getPrev())) {
+//				getCurMSG().equals(getMyCDLL().getNxt());
 //			}
 //		}
-//
+
 //		public void timer(int seconds) {
 //			timer = new Timer();
-//			Timer.schedule(new showMSG(), seconds * 1000);
+//			timer.schedule(new showMSG(), seconds * 1000);
 //		}
-//
+
+//		public void schedule(String msg , int time)
+//		msg = getCurMSG();
+
 //		class showMSG extends TimerTask {
+
 //			@Override
 //			public void run() {
 //				rotateMessage();
-//				myTA.setText(currentMessage);
+//				getMyTA().setText(getCurMSG());
 //				timer.cancel();
 //				timer(5);
 //			}
 //		}
-//
+
 //	}
 
 	public static void main(String[] args) {
