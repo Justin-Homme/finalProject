@@ -16,7 +16,7 @@ import javafx.event.EventHandler;
  * @version Fall 2021
  */
 
-public class Controller {
+public class Controller implements EventHandler<ActionEvent>{
 
 	/** The Priority Task Queue that we will use for part 1 */
 	private PriorityTQ myPTQ;
@@ -40,6 +40,11 @@ public class Controller {
 		myPTQ = new PriorityTQ();
 		myCDLL = new CircDLL();
 		myMainPane = new MainPane(this);
+		
+		myStack.pushTask("Test Message" + "\n");
+		myStack.pushTask("Second Message" + "\n");
+		currentMessage = myStack.toString();
+		myMainPane.getThirdCol().getMyTA().setText(currentMessage);
 
 	} // constructor
 
@@ -65,6 +70,26 @@ public class Controller {
 
 	public Stack<String> getMyStack() {
 		return myStack;
+	}
+
+	
+	@Override
+	public void handle(ActionEvent b) {
+		Column firstCol = myMainPane.getFirstCol();
+		Column thirdCol = myMainPane.getThirdCol();
+		if(b.getSource() == firstCol.getAddTaskB()) {
+			myPTQ.addPTQ(firstCol.getTextTF().getText(), Integer.parseInt(firstCol.getPriorityTF().getText()));
+			firstCol.getMyTA().setText(getMyPTQ().toString());
+			firstCol.getTextTF().setText("");
+			firstCol.getPriorityTF().setText("");
+		} else if(b.getSource() == thirdCol.getAddTaskB()) {
+			String addTask = thirdCol.getTextTF().getText();
+			myStack.pushTask(addTask);
+			thirdCol.displayTxt = myStack.toString();
+			thirdCol.getMyTA().setText(thirdCol.displayTxt);
+			thirdCol.getTextTF().setText("");
+		}
+			
 	}
 
 //	/**

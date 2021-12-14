@@ -23,7 +23,7 @@ import javafx.scene.layout.VBox;
  * @version Fall 2021
  */
 
-public class MainPane extends GridPane implements EventHandler<ActionEvent>{
+public class MainPane extends GridPane {
 
 	/** the column for the PriorityTQ */
 	private Column firstCol;
@@ -62,7 +62,7 @@ public class MainPane extends GridPane implements EventHandler<ActionEvent>{
 
 		// begin third column
 		thirdCol = new Column();
-		thirdCol.addTaskB.setOnAction(this);
+		thirdCol.addTaskB.setOnAction(myController);
 		myGP.add(thirdCol, 2, 0);
 		// end third column
 
@@ -100,10 +100,15 @@ public class MainPane extends GridPane implements EventHandler<ActionEvent>{
 		/** HBox for textFields */
 		private HBox txtFHB;
 		
+		protected String displayTxt;
+		
 		public Column() {
 			super();
 			
+			displayTxt = "";
+			
 			myTA = new TextArea();
+			myTA.setText(displayTxt);
 			myTA.setPrefSize(150, 300);
 			myTA.setEditable(false);
 
@@ -135,7 +140,7 @@ public class MainPane extends GridPane implements EventHandler<ActionEvent>{
 			this.add(myTA, 0, 0);
 			this.add(myVB, 0, 1);
 		} // constructor
-
+		
 		public Button getAddTaskB() {
 			return addTaskB;
 		} // getAddTaskB
@@ -169,19 +174,20 @@ public class MainPane extends GridPane implements EventHandler<ActionEvent>{
 
 	} // Column class
 
-	@Override
-	public void handle(ActionEvent b) {
-		if(b.getSource() == firstCol.addTaskB) {
-			myController.getMyPTQ().addPTQ(firstCol.textTF.getText(), Integer.parseInt(firstCol.priorityTF.getText()));
-			firstCol.myTA.setText(myController.getMyPTQ().toString());
-			firstCol.textTF.setText("");
-			firstCol.priorityTF.setText("");
-		} else if(b.getSource() == thirdCol.addTaskB) {
-			String addTask = thirdCol.getTextTF().getText();
-			myController.getMyStack().pushTask(addTask);
-			thirdCol.getMyTA().setText(myController.getMyStack().toString());
-			thirdCol.textTF.setText("");
-		}
-		
-	}
+//	@Override
+//	public void handle(ActionEvent b) {
+//		if(b.getSource() == firstCol.addTaskB) {
+//			myController.getMyPTQ().addPTQ(firstCol.textTF.getText(), Integer.parseInt(firstCol.priorityTF.getText()));
+//			firstCol.myTA.setText(myController.getMyPTQ().toString());
+//			firstCol.textTF.setText("");
+//			firstCol.priorityTF.setText("");
+//		} else if(b.getSource() == thirdCol.addTaskB) {
+//			String addTask = thirdCol.getTextTF().getText();
+//			myController.getMyStack().pushTask(addTask);
+//			thirdCol.displayTxt = myController.getMyStack().toString();
+//			thirdCol.getMyTA().setText(thirdCol.displayTxt);
+//			thirdCol.textTF.setText("");
+//		}
+//		
+//	}
 } // MainPane class
