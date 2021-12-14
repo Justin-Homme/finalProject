@@ -52,6 +52,21 @@ public class Stack<T> {
         }
         return topn.data;
     } // topTask
+    
+    public String toString() throws IllegalArgumentException {
+    	String myStr = "";
+    	Stack<T> tmpStack = this;
+    	int i = 1;
+    	if(tmpStack.isEmpty()) {
+        	throw new IllegalArgumentException("The stack is empty");
+    	} else {
+    		while(!tmpStack.isEmpty()) {
+    			myStr += i + " " + tmpStack.popTask() + "\n";
+    			i++;
+    		}
+    		return myStr;
+    	}
+    }
 
     private class ListNode {
         

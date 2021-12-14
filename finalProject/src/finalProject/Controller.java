@@ -16,7 +16,7 @@ import javafx.event.EventHandler;
  * @version Fall 2021
  */
 
-public class Controller implements EventHandler<ActionEvent> {
+public class Controller {
 
 	/** The Priority Task Queue that we will use for part 1 */
 	private PriorityTQ myPTQ;
@@ -35,10 +35,10 @@ public class Controller implements EventHandler<ActionEvent> {
 
 	public Controller() {
 		// TODO write the constructor
-//		myGG = new GuessingGame();
-//		myStack = new Stack<String>();
+		myGG = new GuessingGame();
+		myStack = new Stack<String>();
 		myPTQ = new PriorityTQ();
-//		myCDLL = new CircDLL();
+		myCDLL = new CircDLL();
 		myMainPane = new MainPane(this);
 
 	} // constructor
@@ -58,58 +58,66 @@ public class Controller implements EventHandler<ActionEvent> {
 	public MainPane getMyMainPane() {
 		return myMainPane;
 	}
-
-	/**
-	 * adds and removes tasks displays highest priority task
-	 * 
-	 * @param b
-	 */
-	public void handleTask(ActionEvent b) {
-		Column firstCol = myMainPane.getFirstCol();
-		if (b.getSource() == firstCol.getAddTaskB()) {
-			myPTQ.addPTQ(firstCol.getTextTF().getText(), Integer.parseInt(firstCol.getPriorityTF().getText()));
-			firstCol.getMyTA().setText(myPTQ.toString());
-			firstCol.getTextTF().setText("");
-		} else if (b.getSource() == firstCol.getRemoveTaskB()) {
-			myPTQ.list.deleteMin();
-			firstCol.getMyTA().setText(myPTQ.toString());
-		}
+	
+	public PriorityTQ getMyPTQ() {
+		return myPTQ;
 	}
 
-	// adds and removes messages
-	public void handleMessage(ActionEvent b) {
-		Column secondCol = myMainPane.getSecondCol();
-		if (b.getSource() == secondCol.getAddTaskB()) {
-			String addMSG = secondCol.getTextTF().getText();
-			myCDLL.addItem(addMSG);
-			secondCol.getTextTF().setText("");
-		} else if (b.getSource() == secondCol.getRemoveTaskB()) {
-			myCDLL.deleteItem(currentMessage);
-		}
+	public Stack<String> getMyStack() {
+		return myStack;
 	}
 
-	// adds and removes tasks and displays top tasks
-	public void handleTaskStack(ActionEvent b) {
-		Column thirdCol = myMainPane.getThirdCol();
-		if (b.getSource() == thirdCol.getAddTaskB()) {
-			String addTask = thirdCol.getTextTF().getText();
-			myStack.pushTask(addTask);
-			thirdCol.getTextTF().setText(addTask);
-		} else if (b.getSource() == thirdCol.getRemoveTaskB()) {
-			myStack.popTask();
-		}
-	}
+//	/**
+//	 * adds and removes tasks displays highest priority task
+//	 * 
+//	 * @param b
+//	 */
+//	public void handleTask(ActionEvent b) {
+//		Column firstCol = myMainPane.getFirstCol();
+//		if (b.getSource() == firstCol.getAddTaskB()) {
+//			myPTQ.addPTQ(firstCol.getTextTF().getText(), Integer.parseInt(firstCol.getPriorityTF().getText()));
+//			firstCol.getMyTA().setText(myPTQ.toString());
+//			firstCol.getTextTF().setText("");
+//		} else if (b.getSource() == firstCol.getRemoveTaskB()) {
+//			myPTQ.list.deleteMin();
+//			firstCol.getMyTA().setText(myPTQ.toString());
+//		}
+//	}
+//
+//	// adds and removes messages
+//	public void handleMessage(ActionEvent b) {
+//		Column secondCol = myMainPane.getSecondCol();
+//		if (b.getSource() == secondCol.getAddTaskB()) {
+//			String addMSG = secondCol.getTextTF().getText();
+//			myCDLL.addItem(addMSG);
+//			secondCol.getTextTF().setText("");
+//		} else if (b.getSource() == secondCol.getRemoveTaskB()) {
+//			myCDLL.deleteItem(currentMessage);
+//		}
+//	}
+//
+//	// adds and removes tasks and displays top tasks
+//	public void handleTaskStack(ActionEvent b) {
+//		Column thirdCol = myMainPane.getThirdCol();
+//		if (b.getSource() == thirdCol.getAddTaskB()) {
+//			String addTask = thirdCol.getTextTF().getText();
+//			myStack.pushTask(addTask);
+//			thirdCol.getTextTF().setText(addTask);
+//		} else if (b.getSource() == thirdCol.getRemoveTaskB()) {
+//			myStack.popTask();
+//		}
+//	}
+//
+//	public static void main(String[] args) {
+//
+//	}
 
-	public static void main(String[] args) {
-
-	}
-
-	@Override
-	public void handle(ActionEvent b) {
-		Column secondCol = myMainPane.getSecondCol();
-		if (b.getSource() == secondCol.getAddTaskB()) {
-			handleTask(b);
-		}
-		
-	}
+//	@Override
+//	public void handle(ActionEvent b) {
+//		Column secondCol = myMainPane.getSecondCol();
+//		if (b.getSource() == secondCol.getAddTaskB()) {
+//			handleTask(b);
+//		}
+//		
+//	}
 }

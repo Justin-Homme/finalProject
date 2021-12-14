@@ -1,5 +1,8 @@
 package finalProject;
 
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -20,7 +23,7 @@ import javafx.scene.layout.VBox;
  * @version Fall 2021
  */
 
-public class MainPane extends GridPane {
+public class MainPane extends GridPane implements EventHandler<ActionEvent>{
 
 	/** the column for the PriorityTQ */
 	private Column firstCol;
@@ -59,6 +62,7 @@ public class MainPane extends GridPane {
 
 		// begin third column
 		thirdCol = new Column();
+		thirdCol.addTaskB.setOnAction(this);
 		myGP.add(thirdCol, 2, 0);
 		// end third column
 
@@ -104,7 +108,7 @@ public class MainPane extends GridPane {
 			myTA.setEditable(false);
 
 			addTaskB = new Button("Add");
-			addTaskB.setOnAction(myController);
+
 			removeTaskB = new Button("Remove");
 //			removeTaskB.setOnAction((EventHandler<ActionEvent>) this);
 
@@ -164,4 +168,20 @@ public class MainPane extends GridPane {
 		} // addPriorityTF
 
 	} // Column class
+
+	@Override
+	public void handle(ActionEvent b) {
+		if(b.getSource() == firstCol.addTaskB) {
+			myController.getMyPTQ().addPTQ(firstCol.textTF.getText(), Integer.parseInt(firstCol.priorityTF.getText()));
+			firstCol.myTA.setText(myController.getMyPTQ().toString());
+			firstCol.textTF.setText("");
+			firstCol.priorityTF.setText("");
+		} else if(b.getSource() == thirdCol.addTaskB) {
+			String addTask = thirdCol.getTextTF().getText();
+			myController.getMyStack().pushTask(addTask);
+			thirdCol.getMyTA().setText(myController.getMyStack().toString());
+			thirdCol.textTF.setText("");
+		}
+		
+	}
 } // MainPane class
