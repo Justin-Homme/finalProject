@@ -69,28 +69,30 @@ public class Controller extends MainPane {
 			firstCol.getMyTA().setText(myPTQ.toString());
 		}
 	}
-//
-//	// adds and removes messages
-//	public void handleMessage(ActionEvent b) {
-//		if (b.getSource() == addTaskB) {
-//			String addMSG = textTF.getText();
-//			myCDLL.addItem(addMSG);
-//			textTF.setText("");
-//		} else if (b.getSource() == removeTaskB) {
-//			myCDLL.deleteItem(currentMessage);
-//		}
-//	}
-//
-//	// adds and removes tasks and displays top tasks
-//	public void handleTaskStack(ActionEvent b) {
-//		if (b.getSource() == addTaskB) {
-//			String addTask = textTF.getText();
-//			myStack.pushTask(addTask);
-//			textTF.setText(addTask);
-//		} else if (b.getSource() == removeTaskB) {
-//			myStack.popTask();
-//		}
-//	}
+
+	// adds and removes messages
+	public void handleMessage(ActionEvent b) {
+		Column secondCol = myMainPane.getSecondCol();
+		if (b.getSource() == secondCol.getAddTaskB()) {
+			String addMSG = secondCol.getTextTF().getText();
+			myCDLL.addItem(addMSG);
+			secondCol.getTextTF().setText("");
+		} else if (b.getSource() == secondCol.getRemoveTaskB()) {
+			myCDLL.deleteItem(currentMessage);
+		}
+	}
+
+	// adds and removes tasks and displays top tasks
+	public void handleTaskStack(ActionEvent b) {
+		Column thirdCol = myMainPane.getThirdCol();
+		if (b.getSource() == thirdCol.getAddTaskB()) {
+			String addTask = thirdCol.getTextTF().getText();
+			myStack.pushTask(addTask);
+			thirdCol.getTextTF().setText(addTask);
+		} else if (b.getSource() == thirdCol.getRemoveTaskB()) {
+			myStack.popTask();
+		}
+	}
 
 	public static void main(String[] args) {
 
