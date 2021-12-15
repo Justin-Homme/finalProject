@@ -16,13 +16,16 @@ import javafx.stage.Stage;
  */
 
 public class View extends Application {
-
-	private Controller myController;
+	
+	private MainPane myMainPane;
+	
+	private GamePane myGP;
+	
+	private ListPane myListPane;
+	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		try {
-
-			myController = new Controller();
 			
 			BorderPane root = new BorderPane();
 			Scene scene = new Scene(root, 625, 500);
@@ -37,13 +40,13 @@ public class View extends Application {
 			myFP.setPrefSize(175, 500); // set to take up the remaining width of the root
 			root.setRight(myFP);
 
-			MainPane myMainTab = myController.getMyMainPane(); // the MainPane
-			myTP.getTabs().add(new Tab("Main", myMainTab));
+			myMainPane = new MainPane(); // the MainPane
+			myTP.getTabs().add(new Tab("Main", myMainPane));
 
-			ListPane myListPane = new ListPane(); // the ListPane
+			myListPane = new ListPane(); // the ListPane
 			myTP.getTabs().add(new Tab("List", myListPane));
 
-			GamePane myGP = new GamePane(); // the GamePane
+			myGP = new GamePane(); // the GamePane
 			myFP.getChildren().add(myGP);
 
 			primaryStage.show();
@@ -51,7 +54,19 @@ public class View extends Application {
 			e.printStackTrace();
 		}
 	} // start
+	
+	public MainPane getMyMainPane() {
+		return myMainPane;
+	}
+	
+	public GamePane getMyGP() {
+		return myGP;
+	}
 
+	public ListPane getMyListPane() {
+		return myListPane;
+	}
+	
 //	public class Timer extends Controller {
 
 //		private Timer timer;

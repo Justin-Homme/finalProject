@@ -1,6 +1,7 @@
 package finalProject;
 
 import finalProject.MainPane.Column;
+import finalProject.PriorityTQ.PriorityTaskQ;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -16,81 +17,87 @@ import javafx.event.EventHandler;
  * @version Fall 2021
  */
 
-public class Controller implements EventHandler<ActionEvent>{
+public class Controller {
 
-	/** The Priority Task Queue that we will use for part 1 */
-	private PriorityTQ myPTQ;
-
-	/** The stack we will use for part 3 */
-	private Stack<String> myStack;
-
-	/** The Guessing game that will be implemented into our GamePane (part 4) */
-	private GuessingGame myGG;
-
-	/** The circ doublbly linkedlist used for messages */
-	private CircDLL<String> myCDLL;
-	private String currentMessage;
-
-	private MainPane myMainPane;
-
-	public Controller() {
-		// TODO write the constructor
-		myGG = new GuessingGame();
-		myStack = new Stack<String>();
-		myPTQ = new PriorityTQ();
-		myCDLL = new CircDLL();
-		myMainPane = new MainPane(this);
-		
-		myStack.pushTask("Test Message" + "\n");
-		myStack.pushTask("Second Message" + "\n");
-		currentMessage = myStack.toString();
-		myMainPane.getThirdCol().getMyTA().setText(currentMessage);
+	Model myModel;
+	
+	public Controller(View myView) {
+//		// TODO write the constructor
+//		myGG = new GuessingGame();
+//		myStack = new Stack<String>();
+//		myPTQ = new PriorityTQ();
+//		myCDLL = new CircDLL();
+//		myMainPane = new MainPane(this);
 
 	} // constructor
-
-	public GuessingGame getMyGG() {
-		return myGG;
-	}
-
-	public CircDLL<String> getMyCDLL() {
-		return myCDLL;
-	}
-
-	public String getCurMSG() {
-		return currentMessage;
-	}
 	
-	public MainPane getMyMainPane() {
-		return myMainPane;
-	}
-	
-	public PriorityTQ getMyPTQ() {
-		return myPTQ;
-	}
-
-	public Stack<String> getMyStack() {
-		return myStack;
-	}
-
-	
-	@Override
-	public void handle(ActionEvent b) {
-		Column firstCol = myMainPane.getFirstCol();
-		Column thirdCol = myMainPane.getThirdCol();
-		if(b.getSource() == firstCol.getAddTaskB()) {
-			myPTQ.addPTQ(firstCol.getTextTF().getText(), Integer.parseInt(firstCol.getPriorityTF().getText()));
-			firstCol.getMyTA().setText(getMyPTQ().toString());
-			firstCol.getTextTF().setText("");
-			firstCol.getPriorityTF().setText("");
-		} else if(b.getSource() == thirdCol.getAddTaskB()) {
-			String addTask = thirdCol.getTextTF().getText();
-			myStack.pushTask(addTask);
-			thirdCol.displayTxt = myStack.toString();
-			thirdCol.getMyTA().setText(thirdCol.displayTxt);
-			thirdCol.getTextTF().setText("");
-		}
+	public void setView(View myView) {
+		
+		myModel = new Model();
+		
+		Column firstCol = myView.getMyMainPane().getFirstCol();
+		Column secondCol = myView.getMyMainPane().getSecondCol();
+		Column thirdCol = myView.getMyMainPane().getThirdCol();
+		
+		
+		firstCol.getMyTA().textProperty().bind(myModel.getPTQStrProperty());
+		secondCol.getMyTA().textProperty().bind(myModel.getCurMsgProperty());
+		thirdCol.getMyTA().textProperty().bind(myModel.getStackStrProperty());
+		
+		firstCol.getAddTaskB().setOnAction(event -> {
+			String taskStr = firstCol.getTextTF().getText();
+			int taskPriority = Integer.parseInt(firstCol.getPriorityTF().getText());
 			
+			myModel.getMyPTQ().addPTQ(taskStr, taskPriority);
+			myModel.setPTQStr(myModel.getMyPTQ().toString());
+			event.consume();
+		});
 	}
+	
+
+//	public GuessingGame getMyGG() {
+//		return myGG;
+//	}
+//
+//	public CircDLL<String> getMyCDLL() {
+//		return myCDLL;
+//	}
+//
+//	public String getCurMSG() {
+//		return currentMessage;
+//	}
+//	
+//	public MainPane getMyMainPane() {
+//		return myMainPane;
+//	}
+//	
+//	public PriorityTQ getMyPTQ() {
+//		return myPTQ;
+//	}
+//
+//	public Stack<String> getMyStack() {
+//		return myStack;
+//	}
+
+	
+//	@Override
+//	public void handle(ActionEvent b) {
+//		Column firstCol = myMainPane.getFirstCol();
+//		Column thirdCol = myMainPane.getThirdCol();
+//		if(b.getSource() == firstCol.getAddTaskB()) {
+//			myPTQ.addPTQ(firstCol.getTextTF().getText(), Integer.parseInt(firstCol.getPriorityTF().getText()));
+//			firstCol.getMyTA().setText(getMyPTQ().toString());
+//			firstCol.getTextTF().setText("");
+//			firstCol.getPriorityTF().setText("");
+//		} else if(b.getSource() == thirdCol.getAddTaskB()) {
+//			String addTask = thirdCol.getTextTF().getText();
+//			myStack.pushTask(addTask);
+//			thirdCol.displayTxt = myStack.toString();
+//			thirdCol.getMyTA().setText(thirdCol.displayTxt);
+//			thirdCol.getTextTF().setText("");
+//		}
+//			
+//	}
 
 //	/**
 //	 * adds and removes tasks displays highest priority task

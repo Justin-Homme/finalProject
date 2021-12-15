@@ -55,17 +55,21 @@ public class Stack<T> {
     
     public String toString() throws IllegalArgumentException {
     	String myStr = "";
-    	Stack<?> tmpStack = (Stack<?>) this.clone();
-    	if(tmpStack.isEmpty()) {
-        	throw new IllegalArgumentException("The stack is empty");
-    	} else {
-    		int i = 1;
-    		while(!tmpStack.isEmpty()) {
-    			myStr += i + " " + tmpStack.popTask() + "\n";
-    			i++;
-    		}
-    		return myStr;
+    	try {
+	    	Stack<?> tmpStack = (Stack<?>) this.clone();
+	    	if(tmpStack.isEmpty()) {
+	        	throw new IllegalArgumentException("The stack is empty");
+	    	} else {
+	    		int i = 1;
+	    		while(!tmpStack.isEmpty()) {
+	    			myStr += i + " " + tmpStack.popTask() + "\n";
+	    			i++;
+	    		}
+	    	}
+    	} catch(CloneNotSupportedException e){
+    		e.printStackTrace();
     	}
+    		return myStr;
     }
 
     private class ListNode {

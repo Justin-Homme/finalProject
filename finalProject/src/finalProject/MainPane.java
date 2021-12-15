@@ -1,8 +1,5 @@
 package finalProject;
 
-import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -37,12 +34,8 @@ public class MainPane extends GridPane {
 	/** VBox for holding the buttonHB and TextField */
 	private VBox myVB;
 
-	private Controller myController;
-
-	public MainPane(Controller myController) {
+	public MainPane() {
 		super();
-		
-		this.myController = myController;
 		
 		FlowPane temp = new FlowPane();
 		temp.setPrefSize(450, 500);
@@ -62,7 +55,6 @@ public class MainPane extends GridPane {
 
 		// begin third column
 		thirdCol = new Column();
-		thirdCol.addTaskB.setOnAction(myController);
 		myGP.add(thirdCol, 2, 0);
 		// end third column
 
