@@ -1,7 +1,6 @@
 package finalProject;
 
 import java.util.EmptyStackException;
-import java.util.LinkedList;
 
 public class Stack<T> {
 
@@ -55,30 +54,28 @@ public class Stack<T> {
 	} // topTask
 
 	public String toString() throws IllegalArgumentException {
+		ListNode node = topn;
 		String myStr = "";
-		LinkedList<String> tasks = new LinkedList<String>();
-		int i = 0;
-		while (tasks != ) {
-			
-			
+		int i = 1;
+		while (node.next != null) {
+			myStr += i + " " + node.data + "\n";
+			node = node.next;
 			i++;
-			}
 		}
+		return myStr;
+	}
 
-	return myStr;
-}
+	private class ListNode {
 
-private class ListNode {
+		/** the data that the ListNode holds */
+		T data;
+		/** the ListNode to which this ListNode points */
+		ListNode next;
 
-	/** the data that the ListNode holds */
-	T data;
-	/** the ListNode to which this ListNode points */
-	ListNode next;
-
-	public ListNode(T data, ListNode next) {
-		this.data = data;
-		this.next = next;
-	} // constructor
+		public ListNode(T data, ListNode next) {
+			this.data = data;
+			this.next = next;
+		} // constructor
 
 	} // ListNode
 
