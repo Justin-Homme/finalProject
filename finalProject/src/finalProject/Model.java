@@ -19,7 +19,8 @@ public class Model {
 	
 	private StringProperty curMsg;
 	
-	private StringProperty stackStr;
+//	private StringProperty stackStr;
+	private String stackStr;
 	
 	public Model() {
 		myGG = new GuessingGame();
@@ -60,15 +61,21 @@ public class Model {
 		return curMsg.get();
 	}
 	
-	public StringProperty getStackStrProperty() {
-		return stackStr;
-	}
+//	public StringProperty getStackStrProperty() {
+//		return stackStr;
+//	}
 	
 	public String getStackStr() {
-		return stackStr.get();
+		stackStr = myStack.toString();
+		return stackStr;
 	}
 	
 	public void setPTQStr(String str) {
 		pTQStr.set(str);
+	}
+	
+	public void updateStack(String str) {
+		myStack.pushTask(str);
+		stackStr = str;
 	}
 }

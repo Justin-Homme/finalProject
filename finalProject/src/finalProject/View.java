@@ -23,6 +23,8 @@ public class View extends Application {
 	
 	private ListPane myListPane;
 	
+	private Controller myController;
+	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		try {
@@ -41,6 +43,11 @@ public class View extends Application {
 			root.setRight(myFP);
 
 			myMainPane = new MainPane(); // the MainPane
+			myMainPane.getThirdCol().getAddTaskB().setOnAction(event -> {
+				String myStr = myMainPane.getThirdCol().getTextTF().getText();
+				myController.updateThirdCol(myStr);
+				myMainPane.getThirdCol().getTextTF().setText("");
+			});
 			myTP.getTabs().add(new Tab("Main", myMainPane));
 
 			myListPane = new ListPane(); // the ListPane
@@ -48,6 +55,8 @@ public class View extends Application {
 
 			myGP = new GamePane(); // the GamePane
 			myFP.getChildren().add(myGP);
+			
+			myController = new Controller(this);
 
 			primaryStage.show();
 		} catch (Exception e) {
@@ -65,6 +74,10 @@ public class View extends Application {
 
 	public ListPane getMyListPane() {
 		return myListPane;
+	}
+	
+	public void updateStackTA(String stackStr) {
+		myMainPane.getThirdCol().getMyTA().setText(stackStr);
 	}
 	
 //	public class Timer extends Controller {

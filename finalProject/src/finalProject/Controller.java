@@ -21,6 +21,10 @@ public class Controller {
 
 	Model myModel;
 	
+	String stackStr;
+	
+	View myView;
+	
 	public Controller(View myView) {
 //		// TODO write the constructor
 //		myGG = new GuessingGame();
@@ -28,21 +32,23 @@ public class Controller {
 //		myPTQ = new PriorityTQ();
 //		myCDLL = new CircDLL();
 //		myMainPane = new MainPane(this);
-
+		setView(myView);
 	} // constructor
 	
 	public void setView(View myView) {
+		
+		this.myView = myView;
 		
 		myModel = new Model();
 		
 		Column firstCol = myView.getMyMainPane().getFirstCol();
 		Column secondCol = myView.getMyMainPane().getSecondCol();
 		Column thirdCol = myView.getMyMainPane().getThirdCol();
-		
-		
-		firstCol.getMyTA().textProperty().bind(myModel.getPTQStrProperty());
-		secondCol.getMyTA().textProperty().bind(myModel.getCurMsgProperty());
-		thirdCol.getMyTA().textProperty().bind(myModel.getStackStrProperty());
+//		
+//		
+//		firstCol.getMyTA().textProperty().bind(myModel.getPTQStrProperty());
+//		secondCol.getMyTA().textProperty().bind(myModel.getCurMsgProperty());
+//		thirdCol.getMyTA().textProperty().bind(myModel.getStackStrProperty());
 		
 		firstCol.getAddTaskB().setOnAction(event -> {
 			String taskStr = firstCol.getTextTF().getText();
@@ -52,6 +58,11 @@ public class Controller {
 			myModel.setPTQStr(myModel.getMyPTQ().toString());
 			event.consume();
 		});
+	}
+	
+	public void updateThirdCol(String Str) {
+		myModel.updateStack(Str);
+		myView.updateStackTA(myModel.getStackStr());
 	}
 	
 
