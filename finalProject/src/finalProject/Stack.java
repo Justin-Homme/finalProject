@@ -61,6 +61,9 @@ public class Stack<T> {
 			myStr += i + " " + node.data + "\n";
 			node = node.next;
 			i++;
+			if (i > 10) {
+				break;
+			}
 		}
 		return myStr;
 	}
@@ -86,7 +89,21 @@ public class Stack<T> {
 		Stack<String> stack = new Stack<String>();
 		stack.pushTask("water the plants");
 		stack.pushTask("take out garbage");
-		System.out.println("Stack: " + stack);
+		stack.pushTask("water the plants");
+		stack.pushTask("take out garbage");
+		stack.pushTask("water the plants");
+		stack.pushTask("take out garbage");
+		stack.pushTask("water the plants");
+		stack.pushTask("take out garbage");
+		stack.pushTask("water the plants");
+		stack.pushTask("take out garbage");
+		stack.pushTask("water the plants");
+		stack.pushTask("take out garbage");
+		stack.pushTask("water the plants");
+		stack.pushTask("take out garbage");
+		stack.pushTask("water the plants");
+		stack.popTask();
 
+		System.out.print(stack);
 	}
 }
