@@ -68,20 +68,21 @@ public class PriorityTQ {
 	public String toString() {
 		PriorityTaskQ[] myHeap = myMinHeap.getHeap();
 		String myStr = "";
-		for (int i = 0; i < 10; i++) {
-			if (myHeap.length - 1 == i) {
-				i = 10;
-			}
-			myStr += (i + 1) + " " + myHeap[i].getTask() + "\n";
+		int i = 1;
+		while (myHeap != null) {
+			myStr += i + " " + myHeap;
+
+			i++;
 		}
+
 		return myStr;
 	} // toString
 
 	public static void main(String[] args) {
-		PriorityTaskQ ptq = new PriorityTaskQ(null, 0);
+		PriorityTQ ptq = new PriorityTQ();
 		ptq.addPTQ("hey", 1);
 		ptq.addPTQ("hi", 2);
-
+		System.out.print(ptq);
 	}
 
 } // PriorityTQ class
