@@ -170,7 +170,7 @@ public class CircDLL<T extends Comparable<? super T>> {
 	public String toString() {
 		ListNode node = head;
 		String myStr = "";
-		int i = 0;
+		int i = 1;
 		while (node.nxt != null) {
 			myStr += node.rdata;
 			node = node.nxt;

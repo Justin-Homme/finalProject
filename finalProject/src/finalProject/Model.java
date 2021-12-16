@@ -27,6 +27,10 @@ public class Model {
 		myCDLL = new CircDLL<String>();
 	}
 
+	public Stack<String> getMyStack() {
+		return myStack;
+	}
+
 //	public GuessingGame getMyGG() {
 //		return myGG;
 //	} // getMyGG
