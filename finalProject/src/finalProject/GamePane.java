@@ -53,4 +53,16 @@ public class GamePane extends GridPane {
 		getChildren().add(temp);
 
 	} // constructor
+	
+	public Button getYesB() {
+		return yesB;
+	}
+	
+	public Button getNoButton() {
+		return noB;
+	}
+	
+	public TextArea getMyTA(){
+		return myTA;
+	}
 }

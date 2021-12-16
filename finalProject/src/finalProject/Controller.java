@@ -41,4 +41,11 @@ public class Controller {
 		myModel.updateStack(Str);
 		myView.updateStackTA(myModel.getStackStr());
 	} // updateThirdCol
+	
+	public void updateGG(boolean response) {
+		myModel.updateGuessing(response);
+		String myStr = myModel.getCurGameStr();
+		myView.updateGPTA(myStr);
+	} //updateGG
+	
 } // controller

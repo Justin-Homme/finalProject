@@ -1,11 +1,17 @@
 package finalProject;
 
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -73,8 +79,17 @@ public class View extends Application {
 			myTP.getTabs().add(new Tab("List", myListPane));
 
 			myGP = new GamePane(); // the GamePane
+			
+			myGP.getYesB().setOnAction(event -> {
+				myController.updateGG(true);
+			});
+			
+			myGP.getNoButton().setOnAction(event -> {
+				myController.updateGG(false);
+			});
+			
 			myFP.getChildren().add(myGP);
-
+			
 			myController = new Controller(this);
 
 			primaryStage.show();
@@ -82,18 +97,6 @@ public class View extends Application {
 			e.printStackTrace();
 		}
 	} // start
-
-	public MainPane getMyMainPane() {
-		return myMainPane;
-	}
-
-	public GamePane getMyGP() {
-		return myGP;
-	}
-
-	public ListPane getMyListPane() {
-		return myListPane;
-	}
 
 	public void updatePTQTA(String pTQStr) {
 		myMainPane.getFirstCol().getMyTA().setText(pTQStr);
@@ -109,6 +112,10 @@ public class View extends Application {
 		myMainPane.getThirdCol().getMyTA().setText(stackStr);
 		myListPane.getMyTA().setText(stackStr);
 	} // updateStackTA
+	
+	public void updateGPTA(String str) {
+		myGP.getMyTA().setText(str);
+	}
 
 //	public class Timer extends Controller {
 
@@ -140,6 +147,31 @@ public class View extends Application {
 //		}
 
 //	}
+	
+	public class Popup {
+	    
+		public void display() {
+		Stage popupwindow=new Stage();
+		      
+		popupwindow.initModality(Modality.APPLICATION_MODAL);
+		VBox layout= new VBox(10);
+	      
+		layout.setAlignment(Pos.CENTER);
+		Label myLabel = new Label("What did you eat for Breakfast?");
+		Button submitB = new Button("Submit");
+		TextField myTF = new TextField();
+		myTF.setPrefWidth(50);
+		layout.getChildren().addAll(myLabel, myTF, submitB);
+		      
+		Scene scene1= new Scene(layout, 300, 250);
+		      
+		popupwindow.setScene(scene1);
+		      
+		popupwindow.showAndWait();
+		       
+		}
+
+	}
 
 	public static void main(String[] args) {
 		launch(args);

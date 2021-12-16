@@ -19,6 +19,8 @@ public class GuessingGame<T> {
 	private boolean guessing;
 	/** a boolean value that represents the response of the player */
 	private boolean response;
+	
+	String outputStr;
 
 	public GuessingGame() {
 		resetTree();
@@ -33,7 +35,7 @@ public class GuessingGame<T> {
 	 * 
 	 * @param guessing true if guessing, false if not guessing
 	 */
-	private void setGuessing(boolean guessing) {
+	public void setGuessing(boolean guessing) {
 		this.guessing = guessing;
 	} // setGuessing
 
@@ -42,16 +44,8 @@ public class GuessingGame<T> {
 	 * 
 	 * @throws IllegalArgumentException if the response is not "Y" or "N"
 	 */
-	private void setResponse() throws IllegalArgumentException {
-		String response = in.next();
-		in.nextLine();
-		if (response.equals("Y")) {
-			this.response = true;
-		} else if (response.equals("N")) {
-			this.response = false;
-		} else {
-			throw new IllegalArgumentException("Please respond with 'Y' or 'N'");
-		}
+	private void setResponse(boolean response) {
+		this.response = response;
 	} // setResponse
 
 	/**
@@ -61,15 +55,13 @@ public class GuessingGame<T> {
 		return response;
 	} // getResponse
 
-	private void addBreakfast() {
-		String breakfast = in.next();
-		in.nextLine();
+	private void addBreakfast(String breakfast) {
 		myTree.addRightData(breakfast);
 	} // addBreakfast
 
 	private void addQuestion() {
 		myTree.addLeftData();
-		System.out.println("What is a question that you would answer yes to " + myTree.getCurData() + " and no to "
+		outputStr = ("What is a question that you would answer yes to " + myTree.getCurData() + " and no to "
 				+ myTree.getRightData() + "?");
 		myTree.addQuestion(in.nextLine());
 	} // addQuestion
@@ -91,44 +83,43 @@ public class GuessingGame<T> {
 		}
 	} // traverseTree
 
-	// TODO fix this to not print to the terminal but instead fit our GUI
 	public void playGame() {
 		myTree.setCurrent(myTree.getRoot());
 		setGuessing(true);
 
-		System.out.println("Did you eat breakfast? Let's see if I can guess it.");
+		outputStr = "Did you eat breakfast? Let's see if I can guess what you ate.";
 		while (isGuessing() == true) {
 			if (myTree.isLeaf() == false) {
-				System.out.println(myTree.getCurData() + " (Y/N)");
-				setResponse();
+				outputStr = myTree.getCurData() + " (Y/N)";
+//				setResponse();
 				traverseTree();
 			} else {
-				System.out.println("You are thinking of a " + myTree.getCurData() + ". Am I right? (Y/N)");
+				outputStr ="You are thinking of a " + myTree.getCurData() + ". Am I right? (Y/N)";
 				setGuessing(false);
 			}
 		}
 		try {
-			setResponse();
+//			setResponse();
 		} catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
-			setResponse();
+//			setResponse();
 		}
 		if (getResponse() == false) {
-			System.out.println("Darn! What breakfast were you thinking of?");
-			addBreakfast();
+			outputStr = "Darn! What breakfast were you thinking of?";
+//			addBreakfast();
 			addQuestion();
 		} else {
-			System.out.println("Guessed it!");
+			outputStr = "Guessed it!";
 		}
 	} // playGame
 
-	public static void main(String[] args) {
-		GuessingGame<String> myAGG = new GuessingGame<>();
-
-		int i = 1;
-		while (i > 0) { // infinite loop since we want to keep playing
-			myAGG.playGame();
-			System.out.println("Let's play again");
-		}
-	} // main
+//	public static void main(String[] args) {
+//		GuessingGame<String> myAGG = new GuessingGame<>();
+//
+//		int i = 1;
+//		while (i > 0) { // infinite loop since we want to keep playing
+//			myAGG.playGame();
+//			System.out.println("Let's play again");
+//		}
+//	} // main
 }

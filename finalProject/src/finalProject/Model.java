@@ -17,7 +17,6 @@ public class Model {
 
 	private String curMsg;
 
-//	private StringProperty stackStr;
 	private String stackStr;
 
 	public Model() {
@@ -73,4 +72,12 @@ public class Model {
 		myStack.pushTask(str);
 		stackStr = myStack.toString();
 	} // updateStack
+	
+	public void updateGuessing(boolean response) {
+		myGG.setGuessing(response);
+	} // updateGuessing
+	
+	public String getCurGameStr() {
+		return(myGG.outputStr);
+	} // getCurGameStr
 }
