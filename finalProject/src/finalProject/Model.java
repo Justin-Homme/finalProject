@@ -1,7 +1,5 @@
 package finalProject;
 
-import javafx.beans.property.StringProperty;
-
 public class Model {
 	/** The Priority Task Queue that we will use for part 1 */
 	private PriorityTQ myPTQ;
@@ -15,67 +13,55 @@ public class Model {
 	/** The circ doublbly linkedlist used for messages */
 	private CircDLL<String> myCDLL;
 	
-	private StringProperty pTQStr;
+	private String pTQStr;
 	
-	private StringProperty curMsg;
+	private String curMsg;
 	
 //	private StringProperty stackStr;
 	private String stackStr;
 	
 	public Model() {
-		myGG = new GuessingGame();
+		myGG = new GuessingGame<String>();
 		myStack = new Stack<String>();
 		myPTQ = new PriorityTQ();
-		myCDLL = new CircDLL();
+		myCDLL = new CircDLL<String>();
 	}
 	
-	public GuessingGame getMyGG() {
-		return myGG;
-	}
-
-	public CircDLL<String> getMyCDLL() {
-		return myCDLL;
-	}
-
-	public PriorityTQ getMyPTQ() {
-		return myPTQ;
-	}
-
-	public Stack<String> getMyStack() {
-		return myStack;
-	}
-	
-	public StringProperty getPTQStrProperty() {
-		return pTQStr;
-	}
-	
+//	public GuessingGame getMyGG() {
+//		return myGG;
+//	} // getMyGG
+//
+//	public CircDLL<String> getMyCDLL() {
+//		return myCDLL;
+//	} // getMyCDLL
+//
+//	public PriorityTQ getMyPTQ() {
+//		return myPTQ;
+//	} // getMyPTQ
+//
+//	public Stack<String> getMyStack() {
+//		return myStack;
+//	} // getMyStack
+//	
 	public String getPTQStr() {
-		return pTQStr.get();
-	}
-	
-	public StringProperty getCurMsgProperty() {
-		return curMsg;
-	}
+		return pTQStr;
+	} // getPTQStr
 	
 	public String getCurMsg() {
-		return curMsg.get();
-	}
-	
-//	public StringProperty getStackStrProperty() {
-//		return stackStr;
-//	}
+		return curMsg;
+	} // getCurMsg
 	
 	public String getStackStr() {
-		stackStr = myStack.toString();
 		return stackStr;
-	}
+	} // getStackStr
 	
-	public void setPTQStr(String str) {
-		pTQStr.set(str);
-	}
+	public void updatePTQ(String str, int priority) {
+		myPTQ.addPTQ(str, priority);
+		pTQStr = myPTQ.toString();
+	} // updatePTQ
 	
 	public void updateStack(String str) {
 		myStack.pushTask(str);
-		stackStr = str;
-	}
+		stackStr = myStack.toString();
+	} // updateStack
 }

@@ -43,11 +43,20 @@ public class View extends Application {
 			root.setRight(myFP);
 
 			myMainPane = new MainPane(); // the MainPane
-			myMainPane.getThirdCol().getAddTaskB().setOnAction(event -> {
+			myMainPane.getFirstCol().getAddTaskB().setOnAction(event -> {
+				String mystr = myMainPane.getFirstCol().getTextTF().getText();
+				int priority = Integer.parseInt(myMainPane.getFirstCol().getPriorityTF().getText());
+				myController.updateFirstCol(mystr, priority);
+				myMainPane.getFirstCol().getTextTF().setText("");
+				myMainPane.getFirstCol().getPriorityTF().setText("");
+			});
+			
+			myMainPane.getThirdCol().getAddTaskB().setOnAction(event -> {	// third column addTaskB
 				String myStr = myMainPane.getThirdCol().getTextTF().getText();
 				myController.updateThirdCol(myStr);
 				myMainPane.getThirdCol().getTextTF().setText("");
 			});
+			
 			myTP.getTabs().add(new Tab("Main", myMainPane));
 
 			myListPane = new ListPane(); // the ListPane
@@ -76,9 +85,13 @@ public class View extends Application {
 		return myListPane;
 	}
 	
+	public void updatePTQTA(String pTQStr) {
+		myMainPane.getFirstCol().getMyTA().setText(pTQStr);
+	} // updatePTQTA
+	
 	public void updateStackTA(String stackStr) {
 		myMainPane.getThirdCol().getMyTA().setText(stackStr);
-	}
+	} // updateStackTA
 	
 //	public class Timer extends Controller {
 

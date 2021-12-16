@@ -1,5 +1,6 @@
 package finalProject;
 
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
@@ -19,6 +20,8 @@ public class ListPane extends GridPane{
 	/** a TextArea to show a temporary test message */
 	private TextArea myTA;
 	
+	private ScrollPane mySP;
+	
 	//TODO change a lot of stuff, this is currently just set up as a test
 	// right now this is a similar setup to MainPane, but will have a different
 	// layout in the future
@@ -29,19 +32,26 @@ public class ListPane extends GridPane{
 		temp.setPrefSize(450, 500);
 		
 		myTA = new TextArea();	// the first column
-		myTA.setPrefSize(150, 500);
+		myTA.setPrefSize(140, 350);
 		myTA.setText("This is a List test");
-		temp.getChildren().add(myTA);
+		
+		mySP = new ScrollPane();
+		mySP.setContent(myTA);
+		temp.getChildren().add(mySP);
 		
 		myTA = new TextArea();	// the  second column
-		myTA.setPrefSize(150, 500);
+		myTA.setPrefSize(140, 350);
 		myTA.setText("This is also a List test");
-		temp.getChildren().add(myTA);
+		mySP = new ScrollPane();
+		mySP.setContent(myTA);
+		temp.getChildren().add(mySP);
 		
 		myTA = new TextArea();	// the third column
-		myTA.setPrefSize(150, 500);
+		myTA.setPrefSize(140, 350);
 		myTA.setText("Also a List test");
-		temp.getChildren().add(myTA);
+		mySP = new ScrollPane();
+		mySP.setContent(myTA);
+		temp.getChildren().add(mySP);
 		
 		getChildren().add(temp);
 		

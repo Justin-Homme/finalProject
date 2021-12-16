@@ -11,21 +11,21 @@ package finalProject;
 public class PriorityTQ {
 
 	/** Sorted list of tasks */
-	BinaryMinHeap<PriorityTaskQ> list;
+	BinaryMinHeap<PriorityTaskQ> myMinHeap;
 
 	/** The current highest priority task */
 	private PriorityTaskQ minTask;
 
 	public PriorityTQ() {
 
-		list = new BinaryMinHeap<>(100);
-		if(list.isEmpty() == false) {
-			minTask = list.findMin();
+		myMinHeap = new BinaryMinHeap<>(100);
+		if(myMinHeap.isEmpty() == false) {
+			minTask = myMinHeap.findMin();
 		}
 	} // Constructor
 
 	public void addPTQ(String task, int priority) {
-		list.insert(new PriorityTaskQ(task, priority));
+		myMinHeap.insert(new PriorityTaskQ(task, priority));
 	} // addPTQ
 
 	/**
@@ -67,7 +67,7 @@ public class PriorityTQ {
 
 	public String toString() {
 		String myStr = "";
-		PriorityTaskQ[] myHeap = list.getHeap();
+		PriorityTaskQ[] myHeap = myMinHeap.getHeap();
 		for(int i = 0; i < 10; i++) {
 			if(myHeap.length-1 == i) {
 				i = 10;
@@ -75,6 +75,6 @@ public class PriorityTQ {
 			myStr += (i + 1) + " " + myHeap[i].getTask() + "\n";
 		}
 		return myStr;
-	}
+	} // toString
 	
 } // PriorityTQ class
