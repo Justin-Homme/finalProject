@@ -97,14 +97,17 @@ public class View extends Application {
 
 	public void updatePTQTA(String pTQStr) {
 		myMainPane.getFirstCol().getMyTA().setText(pTQStr);
+		myListPane.getMyTA().setText(pTQStr);
 	} // updatePTQTA
 
 	public void updateCDLLTA(String curMsg) {
 		myMainPane.getSecondCol().getMyTA().setText(curMsg);
+		myListPane.getMyTA().setText(curMsg);
 	} // updateCDLLTA
 
 	public void updateStackTA(String stackStr) {
 		myMainPane.getThirdCol().getMyTA().setText(stackStr);
+		myListPane.getMyTA().setText(stackStr);
 	} // updateStackTA
 
 //	public class Timer extends Controller {
