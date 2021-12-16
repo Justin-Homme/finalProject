@@ -92,7 +92,7 @@ public class GuessingGame<T> {
 			if (myTree.isLeaf() == false) {
 				outputStr = myTree.getCurData() + " (Y/N)";
 //				setResponse();
-				traverseTree();
+//				traverseTree();
 			} else {
 				outputStr ="You are thinking of a " + myTree.getCurData() + ". Am I right? (Y/N)";
 				setGuessing(false);
@@ -107,7 +107,7 @@ public class GuessingGame<T> {
 		if (getResponse() == false) {
 			outputStr = "Darn! What breakfast were you thinking of?";
 //			addBreakfast();
-			addQuestion();
+//			addQuestion();
 		} else {
 			outputStr = "Guessed it!";
 		}

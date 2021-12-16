@@ -48,4 +48,8 @@ public class Controller {
 		myView.updateGPTA(myStr);
 	} //updateGG
 	
+	public String getCurGameMsg() {
+		return myModel.getCurGameStr();
+	} // getCurGameMsg
+	
 } // controller

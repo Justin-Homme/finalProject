@@ -18,7 +18,7 @@ import javafx.scene.layout.HBox;
 public class GamePane extends GridPane {
 
 	/** a text area to show a temporary test message */
-	private TextArea myTA;
+	TextArea myTA;
 	/** a button for answering yes */
 	private Button yesB;
 	/** a button for answering no */
@@ -31,7 +31,6 @@ public class GamePane extends GridPane {
 
 		myTA = new TextArea();
 		myTA.setPrefSize(175, 350);
-		myTA.setText("This is our Game Pane");
 
 		FlowPane myFP = new FlowPane();
 		myFP.setPrefSize(175, 150);

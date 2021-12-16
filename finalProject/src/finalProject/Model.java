@@ -21,31 +21,12 @@ public class Model {
 
 	public Model() {
 		myGG = new GuessingGame<String>();
+//		myGG.playGame();
 		myStack = new Stack<String>();
 		myPTQ = new PriorityTQ();
 		myCDLL = new CircDLL<String>();
 	}
 
-	public Stack<String> getMyStack() {
-		return myStack;
-	}
-
-//	public GuessingGame getMyGG() {
-//		return myGG;
-//	} // getMyGG
-//
-//	public CircDLL<String> getMyCDLL() {
-//		return myCDLL;
-//	} // getMyCDLL
-//
-//	public PriorityTQ getMyPTQ() {
-//		return myPTQ;
-//	} // getMyPTQ
-//
-//	public Stack<String> getMyStack() {
-//		return myStack;
-//	} // getMyStack
-//	
 	public String getPTQStr() {
 		return pTQStr;
 	} // getPTQStr

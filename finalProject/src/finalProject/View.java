@@ -91,6 +91,8 @@ public class View extends Application {
 			myFP.getChildren().add(myGP);
 			
 			myController = new Controller(this);
+			
+			updateGPTA(myController.getCurGameMsg());
 
 			primaryStage.show();
 		} catch (Exception e) {
