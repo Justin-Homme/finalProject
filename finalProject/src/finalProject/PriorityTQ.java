@@ -19,7 +19,7 @@ public class PriorityTQ {
 	public PriorityTQ() {
 
 		myMinHeap = new BinaryMinHeap<>(100);
-		if(myMinHeap.isEmpty() == false) {
+		if (myMinHeap.isEmpty() == false) {
 			minTask = myMinHeap.findMin();
 		}
 	} // Constructor
@@ -66,15 +66,22 @@ public class PriorityTQ {
 	} // PriorityTaskQ class
 
 	public String toString() {
-		String myStr = "";
 		PriorityTaskQ[] myHeap = myMinHeap.getHeap();
-		for(int i = 0; i < 10; i++) {
-			if(myHeap.length-1 == i) {
+		String myStr = "";
+		for (int i = 0; i < 10; i++) {
+			if (myHeap.length - 1 == i) {
 				i = 10;
 			}
 			myStr += (i + 1) + " " + myHeap[i].getTask() + "\n";
 		}
 		return myStr;
 	} // toString
-	
+
+	public static void main(String[] args) {
+		PriorityTaskQ ptq = new PriorityTaskQ(null, 0);
+		ptq.addPTQ("hey", 1);
+		ptq.addPTQ("hi", 2);
+
+	}
+
 } // PriorityTQ class
