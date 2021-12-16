@@ -16,19 +16,19 @@ import javafx.stage.Stage;
  */
 
 public class View extends Application {
-	
+
 	private MainPane myMainPane;
-	
+
 	private GamePane myGP;
-	
+
 	private ListPane myListPane;
-	
+
 	private Controller myController;
-	
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		try {
-			
+
 			BorderPane root = new BorderPane();
 			Scene scene = new Scene(root, 625, 500);
 			primaryStage.setScene(scene);
@@ -50,13 +50,23 @@ public class View extends Application {
 				myMainPane.getFirstCol().getTextTF().setText("");
 				myMainPane.getFirstCol().getPriorityTF().setText("");
 			});
-			
-			myMainPane.getThirdCol().getAddTaskB().setOnAction(event -> {	// third column addTaskB
+
+			myMainPane.getSecondCol().getAddTaskB().setOnAction(event -> {
+				String string = myMainPane.getSecondCol().getTextTF().getText();
+				myController.updateSecondCol(string);
+				myMainPane.getSecondCol().getTextTF().setText("");
+			});
+
+			myMainPane.getThirdCol().getAddTaskB().setOnAction(event -> { // third column addTaskB
 				String myStr = myMainPane.getThirdCol().getTextTF().getText();
 				myController.updateThirdCol(myStr);
 				myMainPane.getThirdCol().getTextTF().setText("");
 			});
-			
+			// myMainPane.getThirdCol().getRemoveTaskB().setOnAction(event -> { // third
+			// column addTaskB
+			// getStackStr.popTask();
+			// }
+
 			myTP.getTabs().add(new Tab("Main", myMainPane));
 
 			myListPane = new ListPane(); // the ListPane
@@ -64,7 +74,7 @@ public class View extends Application {
 
 			myGP = new GamePane(); // the GamePane
 			myFP.getChildren().add(myGP);
-			
+
 			myController = new Controller(this);
 
 			primaryStage.show();
@@ -72,11 +82,11 @@ public class View extends Application {
 			e.printStackTrace();
 		}
 	} // start
-	
+
 	public MainPane getMyMainPane() {
 		return myMainPane;
 	}
-	
+
 	public GamePane getMyGP() {
 		return myGP;
 	}
@@ -84,15 +94,19 @@ public class View extends Application {
 	public ListPane getMyListPane() {
 		return myListPane;
 	}
-	
+
 	public void updatePTQTA(String pTQStr) {
 		myMainPane.getFirstCol().getMyTA().setText(pTQStr);
 	} // updatePTQTA
-	
+
+	public void updateCDLLTA(String CDLLStr) {
+		myMainPane.getSecondCol().getMyTA().setText(CDLLStr);
+	} // updateCDLLTA
+
 	public void updateStackTA(String stackStr) {
 		myMainPane.getThirdCol().getMyTA().setText(stackStr);
 	} // updateStackTA
-	
+
 //	public class Timer extends Controller {
 
 //		private Timer timer;

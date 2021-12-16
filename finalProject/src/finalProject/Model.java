@@ -12,21 +12,21 @@ public class Model {
 
 	/** The circ doublbly linkedlist used for messages */
 	private CircDLL<String> myCDLL;
-	
+
 	private String pTQStr;
-	
+
 	private String curMsg;
-	
+
 //	private StringProperty stackStr;
 	private String stackStr;
-	
+
 	public Model() {
 		myGG = new GuessingGame<String>();
 		myStack = new Stack<String>();
 		myPTQ = new PriorityTQ();
 		myCDLL = new CircDLL<String>();
 	}
-	
+
 //	public GuessingGame getMyGG() {
 //		return myGG;
 //	} // getMyGG
@@ -46,20 +46,25 @@ public class Model {
 	public String getPTQStr() {
 		return pTQStr;
 	} // getPTQStr
-	
+
 	public String getCurMsg() {
 		return curMsg;
 	} // getCurMsg
-	
+
 	public String getStackStr() {
 		return stackStr;
 	} // getStackStr
-	
+
 	public void updatePTQ(String str, int priority) {
 		myPTQ.addPTQ(str, priority);
 		pTQStr = myPTQ.toString();
 	} // updatePTQ
-	
+
+	public void updateCDLL(String str) {
+		myCDLL.addItem(str);
+		curMsg = myCDLL.toString();
+	} // updateCDLL
+
 	public void updateStack(String str) {
 		myStack.pushTask(str);
 		stackStr = myStack.toString();
