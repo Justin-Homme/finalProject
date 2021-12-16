@@ -70,8 +70,8 @@ public class PriorityTQ {
 		String myStr = "";
 		int i = 0;
 		while (myHeap != null) {
-			myStr = myHeap;
-			myHeap = myMinHeap.getHeap();
+			myStr = myHeap[];
+			;
 			i++;
 		}
 
