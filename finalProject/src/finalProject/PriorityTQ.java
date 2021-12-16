@@ -68,10 +68,10 @@ public class PriorityTQ {
 	public String toString() {
 		PriorityTaskQ[] myHeap = myMinHeap.getHeap();
 		String myStr = "";
-		int i = 1;
+		int i = 0;
 		while (myHeap != null) {
-			myStr += i + " " + myHeap;
-
+			myStr = myHeap;
+			myHeap = myMinHeap.getHeap();
 			i++;
 		}
 
