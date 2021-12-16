@@ -32,8 +32,8 @@ public class Controller {
 		myView.updatePTQTA(myModel.getPTQStr());
 	} // updateFirstCol
 
-	public void updateSecondCol(String string) {
-		myModel.updateCDLL(string);
+	public void updateSecondCol(String str) {
+		myModel.updateCDLL(str);
 		myView.updateCDLLTA(myModel.getCurMsg());
 	} // updateSecondCol
 

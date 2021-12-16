@@ -99,8 +99,8 @@ public class View extends Application {
 		myMainPane.getFirstCol().getMyTA().setText(pTQStr);
 	} // updatePTQTA
 
-	public void updateCDLLTA(String CDLLStr) {
-		myMainPane.getSecondCol().getMyTA().setText(CDLLStr);
+	public void updateCDLLTA(String curMsg) {
+		myMainPane.getSecondCol().getMyTA().setText(curMsg);
 	} // updateCDLLTA
 
 	public void updateStackTA(String stackStr) {
