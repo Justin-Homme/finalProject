@@ -11,10 +11,10 @@ package finalProject;
 public class PriorityTQ {
 
 	/** Sorted list of tasks */
-	BinaryMinHeap<PriorityTaskQ> myMinHeap;
+	BinaryMinHeap<PriorityTaskNode> myMinHeap;
 
 	/** The current highest priority task */
-	private PriorityTaskQ minTask;
+	private PriorityTaskNode minTask;
 
 	public PriorityTQ() {
 
@@ -25,7 +25,7 @@ public class PriorityTQ {
 	} // Constructor
 
 	public void addPTQ(String task, int priority) {
-		myMinHeap.insert(new PriorityTaskQ(task, priority));
+		myMinHeap.insert(new PriorityTaskNode(task, priority));
 	} // addPTQ
 
 	/**
@@ -33,14 +33,14 @@ public class PriorityTQ {
 	 * @param priority an int signifying the priority of the task (1 is highest
 	 *                 priority, 100 is lowest priority)
 	 */
-	public class PriorityTaskQ implements Comparable<PriorityTaskQ> {
+	public class PriorityTaskNode implements Comparable<PriorityTaskNode> {
 
 		/** the task */
 		private String task;
 		/** the int denoting the task's priority */
 		private int priority;
 
-		public PriorityTaskQ(String task, int priority) {
+		public PriorityTaskNode(String task, int priority) {
 			this.task = task;
 			this.priority = priority;
 		} // Constructor
@@ -54,7 +54,7 @@ public class PriorityTQ {
 		} // getPriority
 
 		@Override
-		public int compareTo(PriorityTaskQ t) {
+		public int compareTo(PriorityTaskNode t) {
 			if (t.priority < priority) {
 				return 1;
 			} else if (t.priority > priority) {
@@ -63,19 +63,14 @@ public class PriorityTQ {
 				return 0;
 			}
 		} // compareTo
+		
+		public String toString() {
+			return this.task;
+		}
 	} // PriorityTaskQ class
 
 	public String toString() {
-		PriorityTaskQ[] myHeap = myMinHeap.getHeap();
-		String myStr = "";
-		int i = 0;
-		while (myHeap != null) {
-			myStr = myHeap[];
-			;
-			i++;
-		}
-
-		return myStr;
+		return myMinHeap.toString();
 	} // toString
 
 	public static void main(String[] args) {
