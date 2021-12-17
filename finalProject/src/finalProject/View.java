@@ -55,11 +55,17 @@ public class View extends Application {
 
 			myMainPane = new MainPane(); // the MainPane
 			myMainPane.getFirstCol().getAddTaskB().setOnAction(event -> {
-				String mystr = myMainPane.getFirstCol().getTextTF().getText();
-				int priority = Integer.parseInt(myMainPane.getFirstCol().getPriorityTF().getText());
-				myController.updateFirstCol(mystr, priority);
-				myMainPane.getFirstCol().getTextTF().setText("");
-				myMainPane.getFirstCol().getPriorityTF().setText("");
+				try {
+					String mystr = myMainPane.getFirstCol().getTextTF().getText();
+					int priority = Integer.parseInt(myMainPane.getFirstCol().getPriorityTF().getText());
+					myController.updateFirstCol(mystr, priority);
+					myMainPane.getFirstCol().getTextTF().setText("");
+					myMainPane.getFirstCol().getPriorityTF().setText("");
+				} catch(NumberFormatException e) {
+					Alert alert = new Alert(AlertType.WARNING);
+					alert.setContentText("You must enter a priority number.");
+					alert.showAndWait();
+				}
 			});
 
 			myMainPane.getFirstCol().getRemoveTaskB().setOnAction(event -> {
@@ -86,21 +92,8 @@ public class View extends Application {
 
 
 			myMainPane.getThirdCol().getRemoveTaskB().setOnAction(event -> { // third
-				Stack<String> stack = new Stack<>();
-				String myStr = myMainPane.getThirdCol().getTextTF().getText();
-				stack.pushTask(myStr);
-				stack.popTask();
-
+				myController.removeStackTop();
 			});
-
-			/*
-			 * myMainPane.getThirdCol().getRemoveTaskB().setOnAction(event -> { // third
-			 * <<<<<<< HEAD ======= Stack<String> stack = new Stack<>(); String myStr =
-			 * myMainPane.getThirdCol().getTextTF().getText(); stack.pushTask(myStr);
-			 * stack.popTask(); >>>>>>> 5330baadd0c0d62cfde79fa7a9decf65a2b98cad
-			 * 
-			 * });
-			 */
 
 			myTP.getTabs().add(new Tab("Main", myMainPane));
 

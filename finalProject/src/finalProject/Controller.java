@@ -54,6 +54,12 @@ public class Controller {
 		myView.updatePTQLP(myModel.getPTQStr());
 		myView.updatePTQMP(myModel.minTask);
 	} // deQ
+	
+	public void removeStackTop() {
+		myModel.removeStackTop();
+		myView.updateStackTA(myModel.getStackStr());
+		myView.updateStackPane(myModel.getFullStack());
+	} // removeStackTop
 
 	public void updateSecondCol(String str) {
 		myModel.updateCDLL(str);

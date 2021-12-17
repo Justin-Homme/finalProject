@@ -74,6 +74,12 @@ public class Model {
 		fullStack = myStack.getFullStack();
 		stackStr = myStack.toString();
 	} // updateStack
+	
+	public void removeStackTop() {
+		myStack.popTask();
+		fullStack = myStack.getFullStack();
+		stackStr = myStack.toString();
+	} // removeStackTop
 
 	public void updateGuessing(boolean response) {
 		myGG.setGuessing(response);
