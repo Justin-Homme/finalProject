@@ -156,6 +156,10 @@ public class View extends Application {
 		myGP.getMyTA().setText(str);
 	} // updateGPTA
 
+	private void rotateMsg() {
+		getCurMsg();
+	}
+
 	public class Reminder {
 		Timer timer;
 
@@ -166,33 +170,12 @@ public class View extends Application {
 
 		class RemindTask extends TimerTask {
 			public void run() {
-				System.out.println("Time's up!");
+				rotateMsg(); // changes currentMessage
 				timer.cancel(); // Terminate the timer thread
+				Reminder(5); // restarts timer
 			}
 		}
 	}
-
-	/*
-	 * public class Timer extends Controller {
-	 * 
-	 * private Timer timer;
-	 * 
-	 * private void rotateMessage() { if
-	 * (getCurMSG().equals(getCurData().getPrev())) {
-	 * getCurMSG().equals(getMyCDLL().getNxt()); } }
-	 * 
-	 * public void timer(int seconds) { timer = new Timer(); timer.schedule(new
-	 * showMSG(), seconds * 1000); }
-	 * 
-	 * public void schedule(String msg , int time) msg = getCurMSG();
-	 * 
-	 * class showMSG extends TimerTask {
-	 * 
-	 * @Override public void run() { rotateMessage();
-	 * getMyTA().setText(getCurMSG()); timer.cancel(); timer(5); } }
-	 * 
-	 * }
-	 */
 
 	public class Popup {
 
