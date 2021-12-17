@@ -163,11 +163,11 @@ public class View extends Application {
 		myGP.getMyTA().setText(str);
 	} // updateGPTA
 
-	String currentDisplay;
+	CircDLL<String> currentDisplay;
 
 	private void rotateMsg() {
-		myMainPane.getSecondCol().getMyTA();
-
+		currentDisplay.getCurData();
+		currentDisplay.getNxt();
 	}
 
 	public class Reminder {

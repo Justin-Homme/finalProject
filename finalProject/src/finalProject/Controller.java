@@ -23,7 +23,7 @@ public class Controller {
 	private Model myModel;
 
 	private View myView;
-	
+
 	/** a txt file for storing our PTQ info */
 	private File pTQStorage = new File("PTQStorage.txt");
 	/** a txt file for storing our CircDLL info */
@@ -76,17 +76,17 @@ public class Controller {
 	public String getCurGameMsg() {
 		return myModel.getCurGameStr();
 	} // getCurGameMsg
-	
+
 	public void saveChanges() {
 		try {
 			FileWriter myWriter = new FileWriter(pTQStorage);
 			myWriter.write(myModel.pTQStr);
 			myWriter.close();
-			
+
 			myWriter = new FileWriter(circDLLStorage);
-			myWriter.write(myModel.getCDLLFileStr());
+			myWriter.write(myModel.cDLLStr);
 			myWriter.close();
-			
+
 			myWriter = new FileWriter(stackStorage);
 			myWriter.write(myModel.stackToStorage());
 			myWriter.close();
@@ -95,47 +95,46 @@ public class Controller {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private void initializeData() {
 		// PTQ
 		readFile(pTQStorage);
 		myView.updatePTQLP(myModel.pTQStr);
 		myView.updatePTQMP(myModel.minTask);
 		// PTQ
-		
+
 		// circDLL
 		readFile(circDLLStorage);
 		myView.updateCDLLTA(myModel.getCurMsg());
-		myView.updateCDLLPane(myModel.getCDLLFileStr());
+		myView.updateCDLLPane(myModel.cDLLStr);
 		// circDLL
-		
+
 		// stack
 		readFile(stackStorage);
 		myView.updateStackTA(myModel.getStackStr());
 		myView.updateStackPane(myModel.getFullStack());
 		// stack
-		
+
 //		readFile(guessingGameStorage);
 	}
-	
-	//TODO add stuff for GuessingGame file
+
+	// TODO add stuff for GuessingGame file
 	private void readFile(File myFile) {
 		try {
 			Scanner myReader = new Scanner(myFile);
-			if(myFile == pTQStorage) {
-				while(myReader.hasNextLine()) {
+			if (myFile == pTQStorage) {
+				while (myReader.hasNextLine()) {
 					int priority = myReader.nextInt();
-					myReader.skip(" ");
 					String myTask = myReader.nextLine();
 					myModel.updatePTQ(myTask, priority);
 				}
-			} else if(myFile == circDLLStorage) {
-				while(myReader.hasNextLine()) {
+			} else if (myFile == circDLLStorage) {
+				while (myReader.hasNextLine()) {
 					String myMessage = myReader.nextLine();
 					myModel.updateCDLL(myMessage);
 				}
-			} else if(myFile == stackStorage) {
-				while(myReader.hasNextLine()) {
+			} else if (myFile == stackStorage) {
+				while (myReader.hasNextLine()) {
 					String myMessage = myReader.nextLine();
 					myModel.updateStack(myMessage);
 				}
@@ -149,9 +148,9 @@ public class Controller {
 				throw new IllegalArgumentException("You cannot read that file.");
 			}
 			myReader.close();
-		} catch(FileNotFoundException e) {
+		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-		} catch(IllegalArgumentException e) {
+		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		}
 	}
