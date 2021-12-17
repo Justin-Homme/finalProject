@@ -32,6 +32,12 @@ public class Controller {
 		myView.updatePTQLP(myModel.getPTQStr());
 		myView.updatePTQMP(myModel.minTask);
 	} // updateFirstCol
+	
+	public void deQ() {
+		myModel.deQ();
+		myView.updatePTQLP(myModel.getPTQStr());
+		myView.updatePTQMP(myModel.minTask);
+	}
 
 	public void updateSecondCol(String str) {
 		myModel.updateCDLL(str);

@@ -56,6 +56,10 @@ public class View extends Application {
 				myMainPane.getFirstCol().getTextTF().setText("");
 				myMainPane.getFirstCol().getPriorityTF().setText("");
 			});
+			
+			myMainPane.getFirstCol().getRemoveTaskB().setOnAction(event -> {
+				myController.deQ();
+			});
 
 			myMainPane.getSecondCol().getAddTaskB().setOnAction(event -> {
 				String string = myMainPane.getSecondCol().getTextTF().getText();

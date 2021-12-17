@@ -48,10 +48,16 @@ public class Model {
 	} // getStackStr
 
 	public void updatePTQ(String str, int priority) {
-		myPTQ.addPTQ(str, priority);
+		myPTQ.addPT(str, priority);
 		pTQStr = myPTQ.toString();
 		minTask = myPTQ.minTask.getTask();
 	} // updatePTQ
+	
+	public void deQ() {
+		myPTQ.deleteMin();
+		pTQStr = myPTQ.toString();
+		minTask = myPTQ.minTask.getTask();
+	}
 
 	public void updateCDLL(String str) {
 		myCDLL.addItem(str);

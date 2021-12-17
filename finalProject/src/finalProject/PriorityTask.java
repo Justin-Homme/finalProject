@@ -24,10 +24,14 @@ public class PriorityTask {
 		}
 	} // Constructor
 
-	public void addPTQ(String task, int priority) {
+	public void addPT(String task, int priority) {
 		myMinHeap.insert(new PriorityTaskNode(task, priority));
 		minTask = myMinHeap.findMin();
 	} // addPTQ
+	
+	public void deleteMin() {
+		minTask = myMinHeap.findMin();
+	}
 	
 //	public String getMinTask() {
 //		return minTask.task;
@@ -77,12 +81,5 @@ public class PriorityTask {
 	public String toString() {
 		return myMinHeap.toString();
 	} // toString
-
-	public static void main(String[] args) {
-		PriorityTask ptq = new PriorityTask();
-		ptq.addPTQ("hey", 1);
-		ptq.addPTQ("hi", 2);
-		System.out.print(ptq);
-	}
 
 } // PriorityTQ class
