@@ -20,12 +20,13 @@ public class CircDLL<T extends Comparable<? super T>> {
 
 	/** The number of items in the list */
 	private int size;
+	/** the current node being displayed */
+	private ListNode cur;
 
 	/**
 	 * clears our linked list to only contain a Sentinel head and tail
 	 */
 	public void clear() {
-		// TODO fix this for CDLL
 		size = 0;
 		tail = new ListNode(null, null, head);
 		head = new ListNode(null, tail, null);
@@ -156,27 +157,30 @@ public class CircDLL<T extends Comparable<? super T>> {
 	 * @param data the data (of type T) that we want to add to our SortedLinkedList
 	 */
 	public void addItem(T data) {
-		ListNode prev = head;
-		ListNode cur = head.nxt;
+		ListNode nxt = cur.nxt;
 
 		// add item to the end of the list /
-		ListNode node = new ListNode(data, cur.nxt, cur.prev);
-		prev.nxt = node;
-		prev = cur;
+		ListNode node = new ListNode(data, cur.nxt, cur);
+		cur.nxt = node;
+		nxt.prev = cur;
 		cur = cur.nxt;
 		size++;
 	}
 
-	public String toString() {
-		ListNode node = head;
+	public String toString() throws IllegalArgumentException {
+		ListNode node = head.nxt;
 		String myStr = "";
-		int i = 0;
-		while (node != null) {
-			myStr = (String) node.rdata;
-			node = node.nxt;
-			i++;
+		int i = 1;
+		if(node == tail) {
+			throw new IllegalArgumentException("The CDLL is empty");
+		} else {
+			while (node != null) {
+				myStr += node.rdata;
+				node = node.nxt;
+				i++;
+			}
+			return myStr;
 		}
-		return myStr;
 	}
 
 //	public ListNode getPrev() {
