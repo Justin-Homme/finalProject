@@ -71,10 +71,14 @@ public class View extends Application {
 				myController.updateThirdCol(myStr);
 				myMainPane.getThirdCol().getTextTF().setText("");
 			});
-			// myMainPane.getThirdCol().getRemoveTaskB().setOnAction(event -> { // third
-			// column addTaskB
-			// getStackStr.popTask();
-			// }
+
+			myMainPane.getThirdCol().getRemoveTaskB().setOnAction(event -> { // third
+				Stack stack = new Stack();
+				String myStr = myMainPane.getThirdCol().getTextTF().getText();
+				stack.pushTask(myStr);
+				stack.popTask();
+
+			});
 
 			myTP.getTabs().add(new Tab("Main", myMainPane));
 
