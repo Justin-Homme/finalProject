@@ -68,16 +68,27 @@ public class Controller {
 	} // updateThirdCol
 
 	public void updateGG(boolean response) {
+<<<<<<< Updated upstream
 		myModel.updateResponse(response);
+=======
+//		myModel.updateResponse(response);
+>>>>>>> Stashed changes
 		progressGG();
 	} // updateGG
 	
 	public void progressGG() {
 		myView.updateGPTA(myModel.getCurGameStr());
+<<<<<<< Updated upstream
 		if(myModel.guessingState == false) {
 			myView.guessingGamefirstPopUp();
 			myView.guessingGameSecondPopUp();
 		}
+=======
+//		if(myModel.guessingState == false) {
+//			myView.guessingGamefirstPopUp();
+//			myView.guessingGameSecondPopUp();
+//		}
+>>>>>>> Stashed changes
 	} // progressGG
 	
 	public void endGuessing() {
@@ -89,11 +100,15 @@ public class Controller {
 		return myModel.getCurGameStr();
 	} // getCurGameMsg
 
+<<<<<<< Updated upstream
 =======
 //	public String getCurGameMsg() {
 //		return myModel.getCurGameStr();
 //	} // getCurGameMsg
 	
+>>>>>>> Stashed changes
+=======
+
 >>>>>>> Stashed changes
 	public void saveChanges() {
 		try {
