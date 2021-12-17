@@ -84,16 +84,14 @@ public class View extends Application {
 				myMainPane.getThirdCol().getTextTF().setText("");
 			});
 
-			myMainPane.getThirdCol().getRemoveTaskB().setOnAction(event -> { // third
-<<<<<<< HEAD
-=======
-				Stack<String> stack = new Stack<>();
-				String myStr = myMainPane.getThirdCol().getTextTF().getText();
-				stack.pushTask(myStr);
-				stack.popTask();
->>>>>>> 5330baadd0c0d62cfde79fa7a9decf65a2b98cad
-
-			});
+			/*
+			 * myMainPane.getThirdCol().getRemoveTaskB().setOnAction(event -> { // third
+			 * <<<<<<< HEAD ======= Stack<String> stack = new Stack<>(); String myStr =
+			 * myMainPane.getThirdCol().getTextTF().getText(); stack.pushTask(myStr);
+			 * stack.popTask(); >>>>>>> 5330baadd0c0d62cfde79fa7a9decf65a2b98cad
+			 * 
+			 * });
+			 */
 
 			myTP.getTabs().add(new Tab("Main", myMainPane));
 
@@ -121,7 +119,7 @@ public class View extends Application {
 				alert.setContentText("Your changes have been saved.");
 				alert.showAndWait();
 			});
-			
+
 			primaryStage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -157,7 +155,7 @@ public class View extends Application {
 	} // updateGPTA
 
 	private void rotateMsg() {
-		getCurMsg();
+		myMainPane.getSecondCol().getMyTA();
 	}
 
 	public class Reminder {
@@ -172,7 +170,7 @@ public class View extends Application {
 			public void run() {
 				rotateMsg(); // changes currentMessage
 				timer.cancel(); // Terminate the timer thread
-				Reminder(5); // restarts timer
+				new Reminder(5); // restarts timer
 			}
 		}
 	}
