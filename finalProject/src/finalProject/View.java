@@ -61,11 +61,11 @@ public class View extends Application {
 				myMainPane.getFirstCol().getTextTF().setText("");
 				myMainPane.getFirstCol().getPriorityTF().setText("");
 			});
-			
+
 			myMainPane.getFirstCol().getRemoveTaskB().setOnAction(event -> {
 				try {
 					myController.deQ();
-				} catch(IllegalStateException e) {
+				} catch (IllegalStateException e) {
 					Alert alert = new Alert(AlertType.WARNING);
 					alert.setContentText("You cannot delete from an empty queue.");
 					alert.showAndWait();
@@ -85,10 +85,6 @@ public class View extends Application {
 			});
 
 			myMainPane.getThirdCol().getRemoveTaskB().setOnAction(event -> { // third
-				Stack stack = new Stack();
-				String myStr = myMainPane.getThirdCol().getTextTF().getText();
-				stack.pushTask(myStr);
-				stack.popTask();
 
 			});
 
