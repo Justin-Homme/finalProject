@@ -124,8 +124,9 @@ public class View extends Application {
 			updateGPTA(myController.getCurGameMsg());
 
 			primaryStage.setOnCloseRequest(event -> {
+				myController.saveChanges();
 				Alert alert = new Alert(AlertType.CONFIRMATION);
-				alert.setContentText("Your changes have been saved.");
+				alert.setContentText("Any changes have been saved.");
 				alert.showAndWait();
 			});
 
