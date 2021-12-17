@@ -1,7 +1,5 @@
 package finalProject;
 
-import java.util.Scanner;
-
 /**
  * The user interface class to drive the animal guessing game
  * 
@@ -14,11 +12,10 @@ import java.util.Scanner;
 public class GuessingGame<T> {
 
 	BinaryTree<String> myTree = new BinaryTree<>();
-	Scanner in = new Scanner(System.in);
 	/** a boolean value that says if we are currently guessing */
-	private boolean guessing;
+	boolean guessing;
 	/** a boolean value that represents the response of the player */
-	private boolean response;
+	boolean response;
 	
 	String outputStr;
 
@@ -26,9 +23,9 @@ public class GuessingGame<T> {
 		resetTree();
 	} // constructor
 
-	private boolean isGuessing() {
-		return guessing;
-	} // isGuessing
+//	boolean isGuessing() {
+//		return guessing;
+//	} // isGuessing
 
 	/**
 	 * set guessing to true or false
@@ -44,7 +41,7 @@ public class GuessingGame<T> {
 	 * 
 	 * @throws IllegalArgumentException if the response is not "Y" or "N"
 	 */
-	private void setResponse(boolean response) {
+	public void setResponse(boolean response) {
 		this.response = response;
 	} // setResponse
 
@@ -59,11 +56,11 @@ public class GuessingGame<T> {
 		myTree.addRightData(breakfast);
 	} // addBreakfast
 
-	private void addQuestion() {
+	private void addQuestion(String ques) {
 		myTree.addLeftData();
 		outputStr = ("What is a question that you would answer yes to " + myTree.getCurData() + " and no to "
 				+ myTree.getRightData() + "?");
-		myTree.addQuestion(in.nextLine());
+		myTree.addQuestion(ques);
 	} // addQuestion
 
 	/**
@@ -88,7 +85,7 @@ public class GuessingGame<T> {
 		setGuessing(true);
 
 		outputStr = "Did you eat breakfast? Let's see if I can guess what you ate.";
-		while (isGuessing() == true) {
+		while (guessing == true) {
 			if (myTree.isLeaf() == false) {
 				outputStr = myTree.getCurData() + " (Y/N)";
 //				setResponse();

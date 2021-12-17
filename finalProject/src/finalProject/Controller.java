@@ -68,15 +68,33 @@ public class Controller {
 	} // updateThirdCol
 
 	public void updateGG(boolean response) {
-		myModel.updateGuessing(response);
-		String myStr = myModel.getCurGameStr();
-		myView.updateGPTA(myStr);
+		myModel.updateResponse(response);
+		progressGG();
 	} // updateGG
+	
+	public void progressGG() {
+		myView.updateGPTA(myModel.getCurGameStr());
+		if(myModel.guessingState == false) {
+			myView.guessingGamefirstPopUp();
+			myView.guessingGameSecondPopUp();
+		}
+	} // progressGG
+	
+	public void endGuessing() {
+		
+	}
 
+<<<<<<< Updated upstream
 	public String getCurGameMsg() {
 		return myModel.getCurGameStr();
 	} // getCurGameMsg
 
+=======
+//	public String getCurGameMsg() {
+//		return myModel.getCurGameStr();
+//	} // getCurGameMsg
+	
+>>>>>>> Stashed changes
 	public void saveChanges() {
 		try {
 			FileWriter myWriter = new FileWriter(pTQStorage);

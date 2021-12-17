@@ -17,6 +17,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 
 /**
@@ -120,7 +121,7 @@ public class View extends Application {
 
 			myController = new Controller(this);
 
-			updateGPTA(myController.getCurGameMsg());
+			myController.progressGG();
 
 			primaryStage.setOnCloseRequest(event -> {
 				myController.saveChanges();
@@ -162,6 +163,46 @@ public class View extends Application {
 	public void updateGPTA(String str) {
 		myGP.getMyTA().setText(str);
 	} // updateGPTA
+	
+	public void guessingGamefirstPopUp() {
+		Stage popupwindow = new Stage();
+
+		popupwindow.initModality(Modality.APPLICATION_MODAL);
+		VBox layout = new VBox(10);
+
+		layout.setAlignment(Pos.CENTER);
+		Label myLabel = new Label("What did you eat for Breakfast?");
+		Button submitB = new Button("Submit");
+		TextField myTF = new TextField();
+		myTF.setPrefWidth(50);
+		layout.getChildren().addAll(myLabel, myTF, submitB);
+
+		Scene scene1 = new Scene(layout, 300, 250);
+
+		popupwindow.setScene(scene1);
+
+		popupwindow.showAndWait();
+	}
+	
+	public void guessingGameSecondPopUp() {
+		Stage popupwindow = new Stage();
+
+		popupwindow.initModality(Modality.APPLICATION_MODAL);
+		VBox layout = new VBox(10);
+
+		layout.setAlignment(Pos.CENTER);
+		Label myLabel = new Label("What is a question you would answer... ");
+		Button submitB = new Button("Submit");
+		TextField myTF = new TextField();
+		myTF.setPrefWidth(50);
+		layout.getChildren().addAll(myLabel, myTF, submitB);
+
+		Scene scene1 = new Scene(layout, 300, 250);
+
+		popupwindow.setScene(scene1);
+
+		popupwindow.showAndWait();
+	}
 
 	CircDLL<String> currentDisplay;
 
@@ -187,30 +228,30 @@ public class View extends Application {
 		}
 	}
 
-	public class Popup {
-
-		public void display() {
-			Stage popupwindow = new Stage();
-
-			popupwindow.initModality(Modality.APPLICATION_MODAL);
-			VBox layout = new VBox(10);
-
-			layout.setAlignment(Pos.CENTER);
-			Label myLabel = new Label("What did you eat for Breakfast?");
-			Button submitB = new Button("Submit");
-			TextField myTF = new TextField();
-			myTF.setPrefWidth(50);
-			layout.getChildren().addAll(myLabel, myTF, submitB);
-
-			Scene scene1 = new Scene(layout, 300, 250);
-
-			popupwindow.setScene(scene1);
-
-			popupwindow.showAndWait();
-
-		}
-
-	}
+//	public class Popup {
+//
+//		public void display() {
+//			Stage popupwindow = new Stage();
+//
+//			popupwindow.initModality(Modality.APPLICATION_MODAL);
+//			VBox layout = new VBox(10);
+//
+//			layout.setAlignment(Pos.CENTER);
+//			Label myLabel = new Label("What did you eat for Breakfast?");
+//			Button submitB = new Button("Submit");
+//			TextField myTF = new TextField();
+//			myTF.setPrefWidth(50);
+//			layout.getChildren().addAll(myLabel, myTF, submitB);
+//
+//			Scene scene1 = new Scene(layout, 300, 250);
+//
+//			popupwindow.setScene(scene1);
+//
+//			popupwindow.showAndWait();
+//
+//		}
+//
+//	}
 
 	public static void main(String[] args) {
 		launch(args);

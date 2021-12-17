@@ -24,6 +24,8 @@ public class Model {
 	private String fullStack;
 
 	private String stackStr;
+	
+	boolean guessingState;
 
 	public Model() {
 		myGG = new GuessingGame<String>();
@@ -73,8 +75,9 @@ public class Model {
 		stackStr = myStack.toString();
 	} // updateStack
 
-	public void updateGuessing(boolean response) {
-		myGG.setGuessing(response);
+	public void updateResponse(boolean response) {
+		myGG.setResponse(response);
+		guessingState = myGG.guessing;
 	} // updateGuessing
 
 	public String getCurGameStr() {
@@ -97,4 +100,16 @@ public class Model {
 		}
 		return myStr;
 	} // stackToStorage
+<<<<<<< Updated upstream
+=======
+	
+	public String getCDLLFileStr() {
+		cDLL_FileStr = myCDLL.getFileString();
+		return cDLL_FileStr;
+	}
+	
+	public void playMyGG() {
+		
+	}
+>>>>>>> Stashed changes
 }
