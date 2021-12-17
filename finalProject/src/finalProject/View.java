@@ -79,19 +79,19 @@ public class View extends Application {
 			myTP.getTabs().add(new Tab("List", myListPane));
 
 			myGP = new GamePane(); // the GamePane
-			
+
 			myGP.getYesB().setOnAction(event -> {
 				myController.updateGG(true);
 			});
-			
+
 			myGP.getNoButton().setOnAction(event -> {
 				myController.updateGG(false);
 			});
-			
+
 			myFP.getChildren().add(myGP);
-			
+
 			myController = new Controller(this);
-			
+
 			updateGPTA(myController.getCurGameMsg());
 
 			primaryStage.show();
@@ -102,19 +102,19 @@ public class View extends Application {
 
 	public void updatePTQTA(String pTQStr) {
 		myMainPane.getFirstCol().getMyTA().setText(pTQStr);
-		myListPane.getMyTA().setText(pTQStr);
+		myListPane.getMyTA1().setText(pTQStr);
 	} // updatePTQTA
 
 	public void updateCDLLTA(String curMsg) {
 		myMainPane.getSecondCol().getMyTA().setText(curMsg);
-		myListPane.getMyTA().setText(curMsg);
+		myListPane.getMyTA2().setText(curMsg);
 	} // updateCDLLTA
 
 	public void updateStackTA(String stackStr) {
 		myMainPane.getThirdCol().getMyTA().setText(stackStr);
-		myListPane.getMyTA().setText(stackStr);
+		myListPane.getMyTA3().setText(stackStr);
 	} // updateStackTA
-	
+
 	public void updateGPTA(String str) {
 		myGP.getMyTA().setText(str);
 	}
@@ -149,28 +149,28 @@ public class View extends Application {
 //		}
 
 //	}
-	
+
 	public class Popup {
-	    
+
 		public void display() {
-		Stage popupwindow=new Stage();
-		      
-		popupwindow.initModality(Modality.APPLICATION_MODAL);
-		VBox layout= new VBox(10);
-	      
-		layout.setAlignment(Pos.CENTER);
-		Label myLabel = new Label("What did you eat for Breakfast?");
-		Button submitB = new Button("Submit");
-		TextField myTF = new TextField();
-		myTF.setPrefWidth(50);
-		layout.getChildren().addAll(myLabel, myTF, submitB);
-		      
-		Scene scene1= new Scene(layout, 300, 250);
-		      
-		popupwindow.setScene(scene1);
-		      
-		popupwindow.showAndWait();
-		       
+			Stage popupwindow = new Stage();
+
+			popupwindow.initModality(Modality.APPLICATION_MODAL);
+			VBox layout = new VBox(10);
+
+			layout.setAlignment(Pos.CENTER);
+			Label myLabel = new Label("What did you eat for Breakfast?");
+			Button submitB = new Button("Submit");
+			TextField myTF = new TextField();
+			myTF.setPrefWidth(50);
+			layout.getChildren().addAll(myLabel, myTF, submitB);
+
+			Scene scene1 = new Scene(layout, 300, 250);
+
+			popupwindow.setScene(scene1);
+
+			popupwindow.showAndWait();
+
 		}
 
 	}
