@@ -158,28 +158,28 @@ public class View extends Application {
 
 	CircDLL<String> currentDisplay;
 
-	private void rotateMsg() {
-		myMainPane.getSecondCol().getMyTA();
-		currentDisplay.getCurData();
-		currentDisplay.getNxt();
-	}
+//	private void rotateMsg() {
+//		myMainPane.getSecondCol().getMyTA();
+//		currentDisplay.getCurData();
+//		currentDisplay.getNxt();
+//	}
 
-	public class Reminder {
-		Timer timer;
+//	public class Reminder {
+//		Timer timer;
+//
+//		public Reminder(int seconds) {
+//			timer = new Timer();
+//			timer.schedule(new RemindTask(), seconds * 1000);
+//		}
 
-		public Reminder(int seconds) {
-			timer = new Timer();
-			timer.schedule(new RemindTask(), seconds * 1000);
-		}
-
-		class RemindTask extends TimerTask {
-			public void run() {
-				rotateMsg(); // changes currentMessage
-				timer.cancel(); // Terminate the timer thread
-				new Reminder(5); // restarts timer
-			}
-		}
-	}
+//		class RemindTask extends TimerTask {
+//			public void run() {
+//				rotateMsg(); // changes currentMessage
+//				timer.cancel(); // Terminate the timer thread
+//				new Reminder(5); // restarts timer
+//			}
+//		}
+//	}
 
 	public class Popup {
 
