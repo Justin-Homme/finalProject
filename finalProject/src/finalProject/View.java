@@ -55,18 +55,13 @@ public class View extends Application {
 
 			myMainPane = new MainPane(); // the MainPane
 			myMainPane.getFirstCol().getAddTaskB().setOnAction(event -> {
-				try {
-					String mystr = myMainPane.getFirstCol().getTextTF().getText();
-					int priority = Integer.parseInt(myMainPane.getFirstCol().getPriorityTF().getText());
-					myController.updateFirstCol(mystr, priority);
-					myMainPane.getFirstCol().getTextTF().setText("");
-					myMainPane.getFirstCol().getPriorityTF().setText("");
-				} catch(NumberFormatException e) {
-					Alert alert = new Alert(AlertType.WARNING);
-					alert.setContentText("The priority text field must contain a number.");
-					alert.showAndWait();
-				}
+				String mystr = myMainPane.getFirstCol().getTextTF().getText();
+				int priority = Integer.parseInt(myMainPane.getFirstCol().getPriorityTF().getText());
+				myController.updateFirstCol(mystr, priority);
+				myMainPane.getFirstCol().getTextTF().setText("");
+				myMainPane.getFirstCol().getPriorityTF().setText("");
 			});
+
 			
 			myMainPane.getFirstCol().getRemoveTaskB().setOnAction(event -> {
 				try {
@@ -89,10 +84,14 @@ public class View extends Application {
 				myController.updateThirdCol(myStr);
 				myMainPane.getThirdCol().getTextTF().setText("");
 			});
-			// myMainPane.getThirdCol().getRemoveTaskB().setOnAction(event -> { // third
-			// column addTaskB
-			// getStackStr.popTask();
-			// }
+
+			myMainPane.getThirdCol().getRemoveTaskB().setOnAction(event -> { // third
+				Stack stack = new Stack();
+				String myStr = myMainPane.getThirdCol().getTextTF().getText();
+				stack.pushTask(myStr);
+				stack.popTask();
+
+			});
 
 			myTP.getTabs().add(new Tab("Main", myMainPane));
 
@@ -115,11 +114,6 @@ public class View extends Application {
 
 			updateGPTA(myController.getCurGameMsg());
 
-			primaryStage.setOnCloseRequest(event -> {
-				Alert alert = new Alert(AlertType.CONFIRMATION);
-				alert.setContentText("Would you like to save your changes?");
-			});
-			
 			primaryStage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -214,11 +208,10 @@ public class View extends Application {
 			popupwindow.showAndWait();
 
 		}
+
 	}
 
 	public static void main(String[] args) {
 		launch(args);
-		new Reminder(5);
-		System.out.println("Task scheduled.");
 	} // main
 } // View

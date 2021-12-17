@@ -54,7 +54,7 @@ public class Model {
 		pTQStr = myPTQ.toString();
 		minTask = myPTQ.minTask.getTask();
 	} // updatePTQ
-	
+
 	public void deQ() {
 		myPTQ.deleteMin();
 		pTQStr = myPTQ.toString();
