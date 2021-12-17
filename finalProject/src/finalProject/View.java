@@ -1,5 +1,8 @@
 package finalProject;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -55,10 +58,6 @@ public class View extends Application {
 				myController.updateFirstCol(mystr, priority);
 				myMainPane.getFirstCol().getTextTF().setText("");
 				myMainPane.getFirstCol().getPriorityTF().setText("");
-			});
-			
-			myMainPane.getFirstCol().getRemoveTaskB().setOnAction(event -> {
-				myController.deQ();
 			});
 
 			myMainPane.getSecondCol().getAddTaskB().setOnAction(event -> {
@@ -132,36 +131,43 @@ public class View extends Application {
 		myGP.getMyTA().setText(str);
 	} // updateGPTA
 
-//	public class Timer extends Controller {
+	public class Reminder {
+		Timer timer;
 
-//		private Timer timer;
+		public Reminder(int seconds) {
+			timer = new Timer();
+			timer.schedule(new RemindTask(), seconds * 1000);
+		}
 
-//		private void rotateMessage() {
-//			if (getCurMSG().equals(getMyCDLL().getPrev())) {
-//				getCurMSG().equals(getMyCDLL().getNxt());
-//			}
-//		}
+		class RemindTask extends TimerTask {
+			public void run() {
+				System.out.println("Time's up!");
+				timer.cancel(); // Terminate the timer thread
+			}
+		}
+	}
 
-//		public void timer(int seconds) {
-//			timer = new Timer();
-//			timer.schedule(new showMSG(), seconds * 1000);
-//		}
-
-//		public void schedule(String msg , int time)
-//		msg = getCurMSG();
-
-//		class showMSG extends TimerTask {
-
-//			@Override
-//			public void run() {
-//				rotateMessage();
-//				getMyTA().setText(getCurMSG());
-//				timer.cancel();
-//				timer(5);
-//			}
-//		}
-
-//	}
+	/*
+	 * public class Timer extends Controller {
+	 * 
+	 * private Timer timer;
+	 * 
+	 * private void rotateMessage() { if
+	 * (getCurMSG().equals(getCurData().getPrev())) {
+	 * getCurMSG().equals(getMyCDLL().getNxt()); } }
+	 * 
+	 * public void timer(int seconds) { timer = new Timer(); timer.schedule(new
+	 * showMSG(), seconds * 1000); }
+	 * 
+	 * public void schedule(String msg , int time) msg = getCurMSG();
+	 * 
+	 * class showMSG extends TimerTask {
+	 * 
+	 * @Override public void run() { rotateMessage();
+	 * getMyTA().setText(getCurMSG()); timer.cancel(); timer(5); } }
+	 * 
+	 * }
+	 */
 
 	public class Popup {
 
@@ -185,10 +191,11 @@ public class View extends Application {
 			popupwindow.showAndWait();
 
 		}
-
 	}
 
 	public static void main(String[] args) {
 		launch(args);
+		new Reminder(5);
+		System.out.println("Task scheduled.");
 	} // main
 } // View
