@@ -84,7 +84,6 @@ public class View extends Application {
 				myMainPane.getThirdCol().getTextTF().setText("");
 			});
 
-
 			myMainPane.getThirdCol().getRemoveTaskB().setOnAction(event -> { // third
 				Stack<String> stack = new Stack<>();
 				String myStr = myMainPane.getThirdCol().getTextTF().getText();
@@ -164,8 +163,11 @@ public class View extends Application {
 		myGP.getMyTA().setText(str);
 	} // updateGPTA
 
+	String currentDisplay;
+
 	private void rotateMsg() {
 		myMainPane.getSecondCol().getMyTA();
+
 	}
 
 	public class Reminder {

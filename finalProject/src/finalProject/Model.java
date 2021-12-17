@@ -2,7 +2,7 @@ package finalProject;
 
 public class Model {
 	/** The Priority Task Queue that we will use for part 1 */
-	private PriorityTaskQ myPTQ;
+	private PriorityTask myPTQ;
 
 	/** The stack we will use for part 3 */
 	private Stack<String> myStack;
@@ -20,8 +20,6 @@ public class Model {
 	private String curMsg;
 
 	String cDLLStr;
-	
-	String cDLL_FileStr;
 
 	private String fullStack;
 
@@ -31,7 +29,7 @@ public class Model {
 		myGG = new GuessingGame<String>();
 //		myGG.playGame();
 		myStack = new Stack<String>();
-		myPTQ = new PriorityTaskQ();
+		myPTQ = new PriorityTask();
 		myCDLL = new CircDLL<String>();
 	}
 
@@ -56,7 +54,7 @@ public class Model {
 		pTQStr = myPTQ.toString();
 		minTask = myPTQ.minTask.getTask();
 	} // updatePTQ
-	
+
 	public void deQ() {
 		myPTQ.deleteMin();
 		pTQStr = myPTQ.toString();
@@ -82,26 +80,21 @@ public class Model {
 	public String getCurGameStr() {
 		return (myGG.outputStr);
 	} // getCurGameStr
-	
+
 	private Stack<String> reverseStack(Stack<String> myStack) {
 		Stack<String> reverseStack = new Stack<>();
-		while(!myStack.isEmpty()) {
+		while (!myStack.isEmpty()) {
 			reverseStack.pushTask(myStack.popTask());
 		}
 		return reverseStack;
 	} // reverseStack
-	
+
 	public String stackToStorage() {
 		Stack<String> reverseStack = reverseStack(myStack);
 		String myStr = "";
-		while(!reverseStack.isEmpty()) {
+		while (!reverseStack.isEmpty()) {
 			myStr += reverseStack.popTask() + "\n";
 		}
 		return myStr;
 	} // stackToStorage
-	
-	public String getCDLLFileStr() {
-		cDLL_FileStr = myCDLL.getFileString();
-		return cDLL_FileStr;
-	} // getCDLLFileStr
 }

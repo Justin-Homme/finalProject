@@ -69,6 +69,14 @@ public class CircDLL<T extends Comparable<? super T>> {
 		}
 	}
 
+	public ListNode getPrev() {
+		return cur.prev;
+	}
+
+	public ListNode getNxt() {
+		return cur.nxt;
+	}
+
 	public T getCurData() {
 		return cur.rdata;
 	}
@@ -161,7 +169,7 @@ public class CircDLL<T extends Comparable<? super T>> {
 	 * @param data the data (of type T) that we want to add to our SortedLinkedList
 	 */
 	public void addItem(T data) {
-		if(size == 0) {
+		if (size == 0) {
 			head.rdata = data;
 			cur = head;
 			size++;
@@ -196,7 +204,7 @@ public class CircDLL<T extends Comparable<? super T>> {
 			return myStr;
 		}
 	}
-	
+
 	public String getFileString() {
 		ListNode node = head;
 		String myStr = "";
@@ -210,13 +218,5 @@ public class CircDLL<T extends Comparable<? super T>> {
 			return myStr;
 		}
 	} // getFileString
-
-//	public ListNode getPrev() {
-//		return prev;
-//	}
-//
-//	public ListNode getNxt() {
-//		return nxt;
-//	}
 
 }
