@@ -36,6 +36,7 @@ public class Controller {
 	public void updateSecondCol(String str) {
 		myModel.updateCDLL(str);
 		myView.updateCDLLTA(myModel.getCurMsg());
+		myView.updateCDLLPane(myModel.cDLLStr);
 	} // updateSecondCol
 
 	public void updateThirdCol(String Str) {

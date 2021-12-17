@@ -59,5 +59,13 @@ public class ListPane extends GridPane {
 	public TextArea getMyTA3() {
 		return myTA3;
 	}
+	
+	public void setTA2(String list) {
+		myTA2.setText(list);
+	}
+	
+	public void setTA3(String list) {
+		myTA3.setText(list);
+	}
 
 }

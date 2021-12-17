@@ -18,6 +18,8 @@ public class Model {
 	private String minTask;
 
 	private String curMsg;
+	
+	String cDLLStr;
 
 	private String stackStr;
 
@@ -53,7 +55,8 @@ public class Model {
 
 	public void updateCDLL(String str) {
 		myCDLL.addItem(str);
-		curMsg = myCDLL.toString();
+		curMsg = myCDLL.getCurData();
+		cDLLStr = myCDLL.toString();
 	} // updateCDLL
 
 	public void updateStack(String str) {
