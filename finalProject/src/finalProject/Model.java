@@ -18,8 +18,10 @@ public class Model {
 	private String minTask;
 
 	private String curMsg;
-	
+
 	String cDLLStr;
+
+	private String fullStack;
 
 	private String stackStr;
 
@@ -47,6 +49,10 @@ public class Model {
 		return stackStr;
 	} // getStackStr
 
+	public String getFullStack() {
+		return fullStack;
+	}
+
 	public void updatePTQ(String str, int priority) {
 		myPTQ.addPTQ(str, priority);
 		pTQStr = myPTQ.toString();
@@ -61,6 +67,7 @@ public class Model {
 
 	public void updateStack(String str) {
 		myStack.pushTask(str);
+		fullStack = myStack.getfullstack();
 		stackStr = myStack.toString();
 	} // updateStack
 
