@@ -84,7 +84,7 @@ public class Controller {
 			myWriter.close();
 			
 			myWriter = new FileWriter(circDLLStorage);
-			myWriter.write(myModel.cDLLStr);
+			myWriter.write(myModel.getCDLLFileStr());
 			myWriter.close();
 			
 			myWriter = new FileWriter(stackStorage);
@@ -106,7 +106,7 @@ public class Controller {
 		// circDLL
 		readFile(circDLLStorage);
 		myView.updateCDLLTA(myModel.getCurMsg());
-		myView.updateCDLLPane(myModel.cDLLStr);
+		myView.updateCDLLPane(myModel.getCDLLFileStr());
 		// circDLL
 		
 		// stack
@@ -125,6 +125,7 @@ public class Controller {
 			if(myFile == pTQStorage) {
 				while(myReader.hasNextLine()) {
 					int priority = myReader.nextInt();
+					myReader.skip(" ");
 					String myTask = myReader.nextLine();
 					myModel.updatePTQ(myTask, priority);
 				}

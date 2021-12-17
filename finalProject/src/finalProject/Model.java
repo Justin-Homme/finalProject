@@ -2,7 +2,7 @@ package finalProject;
 
 public class Model {
 	/** The Priority Task Queue that we will use for part 1 */
-	private PriorityTask myPTQ;
+	private PriorityTaskQ myPTQ;
 
 	/** The stack we will use for part 3 */
 	private Stack<String> myStack;
@@ -20,6 +20,8 @@ public class Model {
 	private String curMsg;
 
 	String cDLLStr;
+	
+	String cDLL_FileStr;
 
 	private String fullStack;
 
@@ -29,7 +31,7 @@ public class Model {
 		myGG = new GuessingGame<String>();
 //		myGG.playGame();
 		myStack = new Stack<String>();
-		myPTQ = new PriorityTask();
+		myPTQ = new PriorityTaskQ();
 		myCDLL = new CircDLL<String>();
 	}
 
@@ -97,4 +99,9 @@ public class Model {
 		}
 		return myStr;
 	} // stackToStorage
+	
+	public String getCDLLFileStr() {
+		cDLL_FileStr = myCDLL.getFileString();
+		return cDLL_FileStr;
+	} // getCDLLFileStr
 }

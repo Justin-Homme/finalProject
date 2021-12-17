@@ -8,7 +8,7 @@ package finalProject;
  * @version 12/2/21
  *
  */
-public class PriorityTask {
+public class PriorityTaskQ {
 
 	/** Sorted list of tasks */
 	BinaryMinHeap<PriorityTaskNode> myMinHeap;
@@ -16,7 +16,7 @@ public class PriorityTask {
 	/** The current highest priority task */
 	PriorityTaskNode minTask;
 
-	public PriorityTask() {
+	public PriorityTaskQ() {
 
 		myMinHeap = new BinaryMinHeap<>(100);
 		if (myMinHeap.isEmpty() == false) {

@@ -196,6 +196,20 @@ public class CircDLL<T extends Comparable<? super T>> {
 			return myStr;
 		}
 	}
+	
+	public String getFileString() {
+		ListNode node = head;
+		String myStr = "";
+		if (node == tail) {
+			throw new IllegalArgumentException("The CDLL is empty");
+		} else {
+			while (node != null) {
+				myStr += node.rdata + "\n";
+				node = node.nxt;
+			}
+			return myStr;
+		}
+	} // getFileString
 
 //	public ListNode getPrev() {
 //		return prev;
