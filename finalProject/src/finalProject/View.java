@@ -100,10 +100,13 @@ public class View extends Application {
 		}
 	} // start
 
-	public void updatePTQTA(String pTQStr) {
-		myMainPane.getFirstCol().getMyTA().setText(pTQStr);
+	public void updatePTQLP(String pTQStr) {
 		myListPane.getMyTA1().setText(pTQStr);
 	} // updatePTQTA
+
+	public void updatePTQMP(String minTask) {
+		myMainPane.getFirstCol().getMyTA().setText(minTask);
+	}
 
 	public void updateCDLLTA(String curMsg) {
 		myMainPane.getSecondCol().getMyTA().setText(curMsg);

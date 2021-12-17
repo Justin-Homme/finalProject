@@ -29,7 +29,8 @@ public class Controller {
 
 	public void updateFirstCol(String str, int priority) {
 		myModel.updatePTQ(str, priority);
-		myView.updatePTQTA(myModel.getPTQStr());
+		myView.updatePTQLP(myModel.getPTQStr());
+		myView.updatePTQMP(myModel.getMinTask());
 	} // updateFirstCol
 
 	public void updateSecondCol(String str) {
@@ -41,15 +42,15 @@ public class Controller {
 		myModel.updateStack(Str);
 		myView.updateStackTA(myModel.getStackStr());
 	} // updateThirdCol
-	
+
 	public void updateGG(boolean response) {
 		myModel.updateGuessing(response);
 		String myStr = myModel.getCurGameStr();
 		myView.updateGPTA(myStr);
-	} //updateGG
-	
+	} // updateGG
+
 	public String getCurGameMsg() {
 		return myModel.getCurGameStr();
 	} // getCurGameMsg
-	
+
 } // controller

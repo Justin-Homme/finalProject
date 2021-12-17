@@ -15,6 +15,8 @@ public class Model {
 
 	private String pTQStr;
 
+	private String minTask;
+
 	private String curMsg;
 
 	private String stackStr;
@@ -25,6 +27,10 @@ public class Model {
 		myStack = new Stack<String>();
 		myPTQ = new PriorityTQ();
 		myCDLL = new CircDLL<String>();
+	}
+
+	public String getMinTask() {
+		return minTask;
 	}
 
 	public String getPTQStr() {
@@ -42,6 +48,7 @@ public class Model {
 	public void updatePTQ(String str, int priority) {
 		myPTQ.addPTQ(str, priority);
 		pTQStr = myPTQ.toString();
+		minTask = toString();
 	} // updatePTQ
 
 	public void updateCDLL(String str) {
@@ -53,12 +60,12 @@ public class Model {
 		myStack.pushTask(str);
 		stackStr = myStack.toString();
 	} // updateStack
-	
+
 	public void updateGuessing(boolean response) {
 		myGG.setGuessing(response);
 	} // updateGuessing
-	
+
 	public String getCurGameStr() {
-		return(myGG.outputStr);
+		return (myGG.outputStr);
 	} // getCurGameStr
 }

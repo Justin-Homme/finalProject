@@ -63,7 +63,7 @@ public class PriorityTask {
 				return 0;
 			}
 		} // compareTo
-		
+
 		public String toString() {
 			return this.task;
 		}
