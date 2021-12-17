@@ -69,7 +69,7 @@ public class BinaryMinHeap<T extends Comparable<? super T>> {
 		heap[curIndex] = item;
 		size++;
 		// while we aren't at the root and curIndex item is > than its parent...
-		while (curIndex != 0 && heap[curIndex].compareTo(heap[parent]) > 0) {
+		while (curIndex != 0 && heap[curIndex].compareTo(heap[parent]) < 0) {
 			T temp = heap[curIndex];
 			heap[curIndex] = heap[parent];
 			heap[parent] = temp;
