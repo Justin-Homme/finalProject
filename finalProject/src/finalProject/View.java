@@ -6,8 +6,6 @@ import java.util.TimerTask;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
@@ -61,7 +59,7 @@ public class View extends Application {
 				myMainPane.getFirstCol().getTextTF().setText("");
 				myMainPane.getFirstCol().getPriorityTF().setText("");
 			});
-
+<<<<<<< HEAD
 			
 			myMainPane.getFirstCol().getRemoveTaskB().setOnAction(event -> {
 				try {
@@ -72,6 +70,8 @@ public class View extends Application {
 					alert.showAndWait();
 				}
 			});
+=======
+>>>>>>> 104e5862a5be14c0698a8563d983e72bba9d071c
 
 			myMainPane.getSecondCol().getAddTaskB().setOnAction(event -> {
 				String string = myMainPane.getSecondCol().getTextTF().getText();

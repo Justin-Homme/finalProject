@@ -161,7 +161,7 @@ public class CircDLL<T extends Comparable<? super T>> {
 	 * @param data the data (of type T) that we want to add to our SortedLinkedList
 	 */
 	public void addItem(T data) {
-		if (size == 0) {
+		if(size == 0) {
 			head.rdata = data;
 			cur = head;
 			size++;
