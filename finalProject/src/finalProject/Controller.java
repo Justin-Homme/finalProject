@@ -2,6 +2,8 @@ package finalProject;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -74,6 +76,15 @@ public class Controller {
 	public String getCurGameMsg() {
 		return myModel.getCurGameStr();
 	} // getCurGameMsg
+	
+	public void saveChanges() {
+		try {
+			FileWriter myWriter = new FileWriter(pTQStorage);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	private void initializeData() {
 		// PTQ
