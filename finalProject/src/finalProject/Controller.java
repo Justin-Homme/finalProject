@@ -30,7 +30,7 @@ public class Controller {
 	public void updateFirstCol(String str, int priority) {
 		myModel.updatePTQ(str, priority);
 		myView.updatePTQLP(myModel.getPTQStr());
-		myView.updatePTQMP(myModel.getMinTask());
+		myView.updatePTQMP(myModel.minTask);
 	} // updateFirstCol
 
 	public void updateSecondCol(String str) {

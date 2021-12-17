@@ -2,7 +2,7 @@ package finalProject;
 
 public class Model {
 	/** The Priority Task Queue that we will use for part 1 */
-	private PriorityTQ myPTQ;
+	private PriorityTask myPTQ;
 
 	/** The stack we will use for part 3 */
 	private Stack<String> myStack;
@@ -15,7 +15,7 @@ public class Model {
 
 	private String pTQStr;
 
-	private String minTask;
+	String minTask;
 
 	private String curMsg;
 	
@@ -27,7 +27,7 @@ public class Model {
 		myGG = new GuessingGame<String>();
 //		myGG.playGame();
 		myStack = new Stack<String>();
-		myPTQ = new PriorityTQ();
+		myPTQ = new PriorityTask();
 		myCDLL = new CircDLL<String>();
 	}
 
@@ -50,7 +50,7 @@ public class Model {
 	public void updatePTQ(String str, int priority) {
 		myPTQ.addPTQ(str, priority);
 		pTQStr = myPTQ.toString();
-		minTask = toString();
+		minTask = myPTQ.minTask.getTask();
 	} // updatePTQ
 
 	public void updateCDLL(String str) {
