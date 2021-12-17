@@ -85,7 +85,7 @@ public class View extends Application {
 			});
 
 			myMainPane.getThirdCol().getRemoveTaskB().setOnAction(event -> { // third
-				Stack stack = new Stack();
+				Stack<String> stack = new Stack<>();
 				String myStr = myMainPane.getThirdCol().getTextTF().getText();
 				stack.pushTask(myStr);
 				stack.popTask();
@@ -113,6 +113,12 @@ public class View extends Application {
 
 			updateGPTA(myController.getCurGameMsg());
 
+			primaryStage.setOnCloseRequest(event -> {
+				Alert alert = new Alert(AlertType.CONFIRMATION);
+				alert.setContentText("Your changes have been saved.");
+				alert.showAndWait();
+			});
+			
 			primaryStage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
