@@ -14,7 +14,7 @@ public class PriorityTask {
 	BinaryMinHeap<PriorityTaskNode> myMinHeap;
 
 	/** The current highest priority task */
-	private PriorityTaskNode minTask;
+	PriorityTaskNode minTask;
 
 	public PriorityTask() {
 
@@ -26,7 +26,12 @@ public class PriorityTask {
 
 	public void addPTQ(String task, int priority) {
 		myMinHeap.insert(new PriorityTaskNode(task, priority));
+		minTask = myMinHeap.findMin();
 	} // addPTQ
+	
+//	public String getMinTask() {
+//		return minTask.task;
+//	}
 
 	/**
 	 * @param task     the task to be added to the queue
