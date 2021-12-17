@@ -1,7 +1,5 @@
 package finalProject;
 
-import finalProject.PriorityTQ.PriorityTaskQ;
-
 /**
  * a BinaryMinHeap class based on the BinaryMaxHeap class by Dr. Gossett and Dr.
  * Albing
@@ -170,18 +168,8 @@ public class BinaryMinHeap<T extends Comparable<? super T>> {
 		}
 	} // heapSort
 
-	public String toString() {
-		PriorityTaskQ[] myHeap = myMinHeap.getHeap();
-		String myStr = "";
-		int i = 0;
-		while (myHeap != null) {
-			myStr = myHeap[];
-			;
-			i++;
-		}
-
-//	public T[] getHeap() {
-//		return heap;
-//	}
+	public T[] getHeap() {
+		return heap;
+	}
 
 }

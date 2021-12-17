@@ -8,7 +8,7 @@ package finalProject;
  * @version 12/2/21
  *
  */
-public class PriorityTask {
+public class PriorityTQ {
 
 	/** Sorted list of tasks */
 	BinaryMinHeap<PriorityTaskQ> myMinHeap;
@@ -16,7 +16,7 @@ public class PriorityTask {
 	/** The current highest priority task */
 	private PriorityTaskQ minTask;
 
-	public PriorityTask() {
+	public PriorityTQ() {
 
 		myMinHeap = new BinaryMinHeap<>(100);
 		if (myMinHeap.isEmpty() == false) {
@@ -66,11 +66,20 @@ public class PriorityTask {
 	} // PriorityTaskQ class
 
 	public String toString() {
+		PriorityTaskQ[] myHeap = myMinHeap.getHeap();
+		String myStr = "";
+		int i = 0;
+		while (myHeap != null) {
+			myStr = myHeap[];
+			;
+			i++;
+		}
 
+		return myStr;
 	} // toString
 
 	public static void main(String[] args) {
-		PriorityTask ptq = new PriorityTask();
+		PriorityTQ ptq = new PriorityTQ();
 		ptq.addPTQ("hey", 1);
 		ptq.addPTQ("hi", 2);
 		System.out.print(ptq);
