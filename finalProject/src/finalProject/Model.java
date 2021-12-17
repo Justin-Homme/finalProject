@@ -13,7 +13,7 @@ public class Model {
 	/** The circ doublbly linkedlist used for messages */
 	private CircDLL<String> myCDLL;
 
-	private String pTQStr;
+	String pTQStr;
 
 	String minTask;
 
@@ -33,7 +33,7 @@ public class Model {
 		myCDLL = new CircDLL<String>();
 	}
 
-	public String getPTQStr() {
+	String getPTQStr() {
 		return pTQStr;
 	} // getPTQStr
 
@@ -59,7 +59,7 @@ public class Model {
 		myPTQ.deleteMin();
 		pTQStr = myPTQ.toString();
 		minTask = myPTQ.minTask.getTask();
-	}
+	} // deQ
 
 	public void updateCDLL(String str) {
 		myCDLL.addItem(str);
@@ -80,4 +80,21 @@ public class Model {
 	public String getCurGameStr() {
 		return (myGG.outputStr);
 	} // getCurGameStr
+	
+	private Stack<String> reverseStack(Stack<String> myStack) {
+		Stack<String> reverseStack = new Stack<>();
+		while(!myStack.isEmpty()) {
+			reverseStack.pushTask(myStack.popTask());
+		}
+		return reverseStack;
+	} // reverseStack
+	
+	public String stackToStorage() {
+		Stack<String> reverseStack = reverseStack(myStack);
+		String myStr = "";
+		while(!reverseStack.isEmpty()) {
+			myStr += reverseStack.popTask() + "\n";
+		}
+		return myStr;
+	} // stackToStorage
 }

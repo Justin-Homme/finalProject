@@ -80,6 +80,16 @@ public class Controller {
 	public void saveChanges() {
 		try {
 			FileWriter myWriter = new FileWriter(pTQStorage);
+			myWriter.write(myModel.pTQStr);
+			myWriter.close();
+			
+			myWriter = new FileWriter(circDLLStorage);
+			myWriter.write(myModel.cDLLStr);
+			myWriter.close();
+			
+			myWriter = new FileWriter(stackStorage);
+			myWriter.write(myModel.stackToStorage());
+			myWriter.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -89,7 +99,7 @@ public class Controller {
 	private void initializeData() {
 		// PTQ
 		readFile(pTQStorage);
-		myView.updatePTQLP(myModel.getPTQStr());
+		myView.updatePTQLP(myModel.pTQStr);
 		myView.updatePTQMP(myModel.minTask);
 		// PTQ
 		

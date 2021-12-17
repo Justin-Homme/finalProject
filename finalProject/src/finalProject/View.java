@@ -85,13 +85,10 @@ public class View extends Application {
 			});
 
 			myMainPane.getThirdCol().getRemoveTaskB().setOnAction(event -> { // third
-<<<<<<< HEAD
-=======
 				Stack<String> stack = new Stack<>();
 				String myStr = myMainPane.getThirdCol().getTextTF().getText();
 				stack.pushTask(myStr);
 				stack.popTask();
->>>>>>> 5330baadd0c0d62cfde79fa7a9decf65a2b98cad
 
 			});
 
