@@ -115,15 +115,18 @@ public class View extends Application {
 	public void updateCDLLTA(String curMsg) {
 		myMainPane.getSecondCol().getMyTA().setText(curMsg);
 	} // updateCDLLTA
-	
+
 	public void updateCDLLPane(String list) {
 		myListPane.setTA2(list);
 	} // updateCDLLPane
 
 	public void updateStackTA(String stackStr) {
 		myMainPane.getThirdCol().getMyTA().setText(stackStr);
-		myListPane.getMyTA3().setText(stackStr);
 	} // updateStackTA
+
+	public void updateStackPane(String fullstack) {
+		myListPane.setTA3(fullstack);
+	} // updateStackPane
 
 	public void updateGPTA(String str) {
 		myGP.getMyTA().setText(str);

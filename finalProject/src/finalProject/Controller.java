@@ -48,6 +48,7 @@ public class Controller {
 	public void updateThirdCol(String Str) {
 		myModel.updateStack(Str);
 		myView.updateStackTA(myModel.getStackStr());
+		myView.updateStackPane(myModel.getFullStack());
 	} // updateThirdCol
 
 	public void updateGG(boolean response) {

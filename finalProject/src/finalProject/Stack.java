@@ -53,6 +53,18 @@ public class Stack<T> {
 		return topn.data;
 	} // topTask
 
+	public String getfullstack() {
+		ListNode node = topn;
+		String myStr = "";
+		int i = 1;
+		while (node.next != null) {
+			myStr += i + " " + node.data + "\n";
+			node = node.next;
+			i++;
+		}
+		return myStr;
+	}
+
 	public String toString() {
 		ListNode node = topn;
 		String myStr = "";
