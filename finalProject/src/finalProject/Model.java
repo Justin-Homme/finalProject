@@ -33,10 +33,6 @@ public class Model {
 		myCDLL = new CircDLL<String>();
 	}
 
-	public String getMinTask() {
-		return minTask;
-	}
-
 	public String getPTQStr() {
 		return pTQStr;
 	} // getPTQStr

@@ -20,10 +20,6 @@ public class ListPane extends GridPane {
 	private TextArea myTA2;
 	private TextArea myTA3;
 
-	// TODO change a lot of stuff, this is currently just set up as a test
-	// right now this is a similar setup to MainPane, but will have a different
-	// layout in the future
-
 	public ListPane() {
 		super();
 		FlowPane temp = new FlowPane();
@@ -47,25 +43,17 @@ public class ListPane extends GridPane {
 		getChildren().add(temp);
 
 	} // constructor
-
-	public TextArea getMyTA1() {
-		return myTA1;
-	}
-
-	public TextArea getMyTA2() {
-		return myTA2;
-	}
-
-	public TextArea getMyTA3() {
-		return myTA3;
-	}
+	
+	public void setTA1(String list) {
+		myTA1.setText(list);
+	} // setTA1
 	
 	public void setTA2(String list) {
 		myTA2.setText(list);
-	}
+	} // setTA2
 	
 	public void setTA3(String list) {
 		myTA3.setText(list);
-	}
+	} // setTA3
 
 }

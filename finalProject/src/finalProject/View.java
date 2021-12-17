@@ -67,9 +67,6 @@ public class View extends Application {
 					alert.showAndWait();
 				}
 			});
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
 			
 			myMainPane.getFirstCol().getRemoveTaskB().setOnAction(event -> {
 				try {
@@ -80,9 +77,6 @@ public class View extends Application {
 					alert.showAndWait();
 				}
 			});
-=======
->>>>>>> a93e062e0d2db23785f0841396d6171232971a53
->>>>>>> Stashed changes
 
 			myMainPane.getSecondCol().getAddTaskB().setOnAction(event -> {
 				String string = myMainPane.getSecondCol().getTextTF().getText();
@@ -133,7 +127,7 @@ public class View extends Application {
 	} // start
 
 	public void updatePTQLP(String pTQStr) {
-		myListPane.getMyTA1().setText(pTQStr);
+		myListPane.setTA1(pTQStr);
 	} // updatePTQTA
 
 	public void updatePTQMP(String minTask) {
