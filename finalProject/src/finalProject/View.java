@@ -107,8 +107,11 @@ public class View extends Application {
 
 	public void updateCDLLTA(String curMsg) {
 		myMainPane.getSecondCol().getMyTA().setText(curMsg);
-		myListPane.getMyTA2().setText(curMsg);
 	} // updateCDLLTA
+	
+	public void updateCDLLPane(String list) {
+		myListPane.setTA2(list);
+	} // updateCDLLPane
 
 	public void updateStackTA(String stackStr) {
 		myMainPane.getThirdCol().getMyTA().setText(stackStr);
@@ -117,7 +120,7 @@ public class View extends Application {
 
 	public void updateGPTA(String str) {
 		myGP.getMyTA().setText(str);
-	}
+	} // updateGPTA
 
 //	public class Timer extends Controller {
 
