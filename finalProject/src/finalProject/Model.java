@@ -73,7 +73,7 @@ public class Model {
 
 	public void updateStack(String str) {
 		myStack.pushTask(str);
-		fullStack = myStack.getfullstack();
+		fullStack = myStack.getFullStack();
 		stackStr = myStack.toString();
 	} // updateStack
 

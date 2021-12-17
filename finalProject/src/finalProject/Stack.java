@@ -53,7 +53,7 @@ public class Stack<T> {
 		return topn.data;
 	} // topTask
 
-	public String getfullstack() {
+	public String getFullStack() {
 		ListNode node = topn;
 		String myStr = "";
 		int i = 1;
