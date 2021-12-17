@@ -68,7 +68,7 @@ public class CircDLL<T extends Comparable<? super T>> {
 			prev = previous;
 		}
 	}
-	
+
 	public T getCurData() {
 		return cur.rdata;
 	}
@@ -161,21 +161,21 @@ public class CircDLL<T extends Comparable<? super T>> {
 	 * @param data the data (of type T) that we want to add to our SortedLinkedList
 	 */
 	public void addItem(T data) {
-		if(size == 0) {
+		if (size == 0) {
 			head.rdata = data;
 			cur = head;
 			size++;
-		} else if(size == 1) {
+		} else if (size == 1) {
 			tail.rdata = data;
 			cur = tail;
 			size++;
 		} else {
 			ListNode nxt = cur.nxt;
-	
+
 			// add item to the end of the list /
 			ListNode node = new ListNode(data, cur.nxt, cur);
 			cur.nxt = node;
-			nxt.prev = cur;
+			node.prev = cur;
 			cur = cur.nxt;
 			size++;
 		}
@@ -185,7 +185,7 @@ public class CircDLL<T extends Comparable<? super T>> {
 		ListNode node = head;
 		String myStr = "";
 		int i = 1;
-		if(node == tail) {
+		if (node == tail) {
 			throw new IllegalArgumentException("The CDLL is empty");
 		} else {
 			while (node != null) {
@@ -196,8 +196,6 @@ public class CircDLL<T extends Comparable<? super T>> {
 			return myStr;
 		}
 	}
-	
-	
 
 //	public ListNode getPrev() {
 //		return prev;

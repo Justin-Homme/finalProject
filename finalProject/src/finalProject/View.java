@@ -6,8 +6,6 @@ import java.util.TimerTask;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
@@ -55,34 +53,12 @@ public class View extends Application {
 
 			myMainPane = new MainPane(); // the MainPane
 			myMainPane.getFirstCol().getAddTaskB().setOnAction(event -> {
-				try {
-					String mystr = myMainPane.getFirstCol().getTextTF().getText();
-					int priority = Integer.parseInt(myMainPane.getFirstCol().getPriorityTF().getText());
-					myController.updateFirstCol(mystr, priority);
-					myMainPane.getFirstCol().getTextTF().setText("");
-					myMainPane.getFirstCol().getPriorityTF().setText("");
-				} catch(NumberFormatException e) {
-					Alert alert = new Alert(AlertType.WARNING);
-					alert.setContentText("The priority text field must contain a number.");
-					alert.showAndWait();
-				}
+				String mystr = myMainPane.getFirstCol().getTextTF().getText();
+				int priority = Integer.parseInt(myMainPane.getFirstCol().getPriorityTF().getText());
+				myController.updateFirstCol(mystr, priority);
+				myMainPane.getFirstCol().getTextTF().setText("");
+				myMainPane.getFirstCol().getPriorityTF().setText("");
 			});
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-			
-			myMainPane.getFirstCol().getRemoveTaskB().setOnAction(event -> {
-				try {
-					myController.deQ();
-				} catch(IllegalStateException e) {
-					Alert alert = new Alert(AlertType.WARNING);
-					alert.setContentText("You cannot delete from an empty queue.");
-					alert.showAndWait();
-				}
-			});
-=======
->>>>>>> a93e062e0d2db23785f0841396d6171232971a53
->>>>>>> Stashed changes
 
 			myMainPane.getSecondCol().getAddTaskB().setOnAction(event -> {
 				String string = myMainPane.getSecondCol().getTextTF().getText();
@@ -121,11 +97,6 @@ public class View extends Application {
 
 			updateGPTA(myController.getCurGameMsg());
 
-			primaryStage.setOnCloseRequest(event -> {
-				Alert alert = new Alert(AlertType.CONFIRMATION);
-				alert.setContentText("Would you like to save your changes?");
-			});
-			
 			primaryStage.show();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -220,11 +191,10 @@ public class View extends Application {
 			popupwindow.showAndWait();
 
 		}
+
 	}
 
 	public static void main(String[] args) {
 		launch(args);
-		new Reminder(5);
-		System.out.println("Task scheduled.");
 	} // main
 } // View
