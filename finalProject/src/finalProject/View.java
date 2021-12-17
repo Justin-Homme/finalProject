@@ -1,5 +1,6 @@
 package finalProject;
 
+import java.awt.event.ActionListener;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -156,30 +157,26 @@ public class View extends Application {
 		myGP.getMyTA().setText(str);
 	} // updateGPTA
 
-	CircDLL<String> currentDisplay;
+	private void rotateMsg() {
+		myController.rotateMsg();
+	}
+	
+	public class Reminder {
+		Timer timer;
 
-//	private void rotateMsg() {
-//		myMainPane.getSecondCol().getMyTA();
-//		currentDisplay.getCurData();
-//		currentDisplay.getNxt();
-//	}
+		public Reminder(int seconds) {
+			timer = new Timer();
+			timer.schedule(new RemindTask(), seconds * 1000);
+		}
 
-//	public class Reminder {
-//		Timer timer;
-//
-//		public Reminder(int seconds) {
-//			timer = new Timer();
-//			timer.schedule(new RemindTask(), seconds * 1000);
-//		}
-
-//		class RemindTask extends TimerTask {
-//			public void run() {
-//				rotateMsg(); // changes currentMessage
-//				timer.cancel(); // Terminate the timer thread
-//				new Reminder(5); // restarts timer
-//			}
-//		}
-//	}
+		class RemindTask extends TimerTask {
+			public void run() {
+				rotateMsg(); // changes currentMessage
+				timer.cancel(); // Terminate the timer thread
+				new Reminder(5); // restarts timer
+			}
+		}
+	}
 
 	public class Popup {
 

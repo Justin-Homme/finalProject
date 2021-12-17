@@ -50,6 +50,10 @@ public class Model {
 	public String getFullStack() {
 		return fullStack;
 	}
+	
+	public void updateCurMsg() {
+		curMsg = myCDLL.getNxt().toString();
+	}
 
 	public void updatePTQ(String str, int priority) {
 		myPTQ.addPT(str, priority);

@@ -66,6 +66,11 @@ public class Controller {
 		myView.updateCDLLTA(myModel.getCurMsg());
 		myView.updateCDLLPane(myModel.cDLLStr);
 	} // updateSecondCol
+	
+	public void rotateMsg() {
+		myModel.updateCurMsg();
+		myView.updateCDLLTA(myModel.getCurMsg());
+	}
 
 	public void updateThirdCol(String Str) {
 		myModel.updateStack(Str);

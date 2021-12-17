@@ -48,7 +48,7 @@ public class CircDLL<T extends Comparable<? super T>> {
 	 * @author Justin Homme
 	 *
 	 */
-	private class ListNode {
+	class ListNode {
 		/** The data to store in this node */
 		private T rdata;
 		/** A pointer to the next node in the list */
