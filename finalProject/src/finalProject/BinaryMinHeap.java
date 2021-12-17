@@ -171,7 +171,7 @@ public class BinaryMinHeap<T extends Comparable<? super T>> {
 	public String toString() {
 		String myStr = "";
 		for(int i = 0; i <= (size-1); i++) {
-			myStr += heap[i].toString() + "\n";
+			myStr += (i+1) + heap[i].toString() + "\n";
 //			+ heap[2*i].toString() + "\n" + heap[(2*i) + 1].toString() + "\n";
 		}
 		return myStr;
